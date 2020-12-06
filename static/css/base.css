@@ -1,0 +1,235 @@
+@charset "UTF-8";
+
+:root {
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: sans-serif;
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+/* Typography */
+html {
+    font-size: 1rem;
+  }
+
+  h2 {
+    font-size: 1.35rem;
+  }
+  
+  @media (min-width: 576px) {
+    html {
+      font-size: 1.2rem; /* media-breakpoint-up(sm) */
+    }
+  }
+  
+  @media (min-width: 768px) {
+    html {
+      font-size: 1.4rem; /* media-breakpoint-up(md) */
+    }
+  }
+  
+  @media (min-width: 992px) {
+    html {
+      font-size: 1.6rem; /* media-breakpoint-up(lg) */
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    h3 {
+        font-size: 1rem;
+    }
+
+    p {
+        font-size: 0.8rem;
+    }
+  }
+
+  /* Navigation Bar */
+
+  .navbar-brand{
+    z-index: 1;
+  }
+
+  .hamburger-icon {
+    z-index: 1;
+  }
+
+  .sidenav {
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 200; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    background: -o-linear-gradient(top, #FF5085, #476E74);
+    background: -webkit-gradient(linear, left top, left bottom, from(#FF5085), to(#476E74));
+    background: linear-gradient(to bottom, #FF5085, #476E74);
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 60px; /* Place content 60px from the top */
+    -webkit-transition: 0.5s;
+    -o-transition: 0.5s;
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+  }
+
+  .sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #fff;
+    display: block;
+    -webkit-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
+    margin-left: 2rem;
+  }
+
+  .navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover {
+    color: #f1f1f1;
+  }
+
+  .sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 2.8rem;
+    margin-left: 50px;
+  }
+  
+  .backdrop {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 100;
+  }
+  
+  .navbar-light .navbar-nav .nav-link {
+    color: #fff;
+  }
+
+  .line{
+      width: 2.4rem;
+      height: 0.3rem;
+      background: #E9F1F7;
+      -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+              box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      -webkit-transition: 0.5s;
+      -o-transition: 0.5s;
+      transition: 0.5s;
+  }
+
+  .hamburger {
+    padding: 0.3rem 0.3rem;
+    z-index: 1;
+  }
+  
+
+  .menu-width {
+    width: 250px !important;
+  }
+
+  .sidenav a.brand-sidenav {
+    padding: initial;
+    text-decoration: none;
+    font-size: 25px;
+    color: #fff;
+    display: block;
+    -webkit-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
+    margin-left: initial;
+  }
+
+  .active-li-element {
+    border-left: solid 6px #fff;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+  }
+
+.scroll-prevent {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+@media (min-width: 992px) {
+  .sidenav {
+    width: 100%; /* 0 width - change this with JavaScript */
+    position: relative;
+    background: transparent; /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: initial; /* Place content 60px from the top */
+    -webkit-transition: 0.5s;
+    -o-transition: 0.5s;
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+  }
+  
+  .sidenav .closebtn {
+    display: none;
+    position: initial;
+    right: 0;
+    font-size: 1rem;
+    margin-left: auto;
+  }
+
+  .sidenav a {
+    padding: initial;
+    text-decoration: none;
+    font-size: 1rem;
+    color: #818181;
+    display: block;
+    margin-left: initial;
+  }
+
+  .navbar-light .navbar-nav .nav-link {
+    color: #fff;
+}
+
+.backdrop {
+  display: none;
+}
+
+.sidenav{
+  width: 100%;
+}
+
+.menu-width {
+  width: 100% !important;
+}
+
+.active-li-element {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-left: none;
+}
+
+.active-ancor {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-bottom: solid 4px #007BEA;
+}
+
+.scroll-prevent {
+  position: initial;
+    top: 0;
+    left: 0;
+    height: initial;
+    width: initial;
+    overflow: initial;
+}
+}
+

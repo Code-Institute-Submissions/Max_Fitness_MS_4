@@ -5,3 +5,8 @@
 {% block content %}
  Home page
 {% endblock %}
+
+{% block postloadjs %}
+    {{ block.super }}
+    <script src="{% static 'js/nav-bar.js' %}"></script>
+{% endblock %}
