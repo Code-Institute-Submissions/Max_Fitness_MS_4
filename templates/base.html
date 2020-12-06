@@ -42,15 +42,15 @@
 
 <body>
 
-    <header>
+    <header class="header-position">
 		<nav class="navbar navbar-expand-lg navbar-light">
-			<a class="navbar-brand text-black" href="index.html">Max Fitness.</a>
-			<div class="hamburger ml-auto d-lg-none">
+			<a class="navbar-brand text-white ml-l-0 ml-xl-2 d-none d-lg-block" href="#">Max Fitness.</a>
+			<div class="hamburger ml-sm-2 d-lg-none">
 				<div class="line top"></div>
 				<div class="line middle mt-2"></div>
 				<div class="line bottom mt-2"></div>
 			</div>
-			<div class="nav-links mr-lg-auto">
+			<div class="nav-links ml-l-0 ml-xl-1 mr-lg-auto">
 				<ul class="navbar-nav sidenav">
 					<li>
 						<a class="closebtn">&times;</a>
@@ -59,35 +59,79 @@
 						<hr>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link text-lg-white text-uppercase"
+						<a class="nav-link text-lg-white text-uppercase ml-2 ml-sm-1 ml-xl-1"
 							href="#"><i class="fas fa-home d-lg-none"></i> home</a>
 					</li>
 					<li class="d-lg-none">
 						<hr>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link text-lg-white text-uppercase"
-							href="#"><i class="fas fa-dumbbell d-lg-none"></i> training</a>
+                        <div class="dropdown show">
+                            <a class="nav-link text-white dropdown-toggle text-uppercase ml-2 ml-sm-1 ml-xl-1" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                               <i class="fas fa-dumbbell d-lg-none"></i> training
+                            </a>
+
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                <a class="dropdown-item" href="#">Nutrition & Diet</a>
+                                <a class="dropdown-item" href="#">Training Plans</a>
+                            </div>
+                        </div>
 					</li>
 					<li class="d-lg-none">
 						<hr>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link text-lg-white text-uppercase"
+						<a class="nav-link text-lg-white text-uppercase ml-2 ml-sm-1 ml-xl-1"
 							href="#"><i class="fas fa-id-card-alt d-lg-none"></i> membership</a>
 					</li>
 					<li class="d-lg-none">
 						<hr>
 					</li>
                     <li class="nav-item">
-						<a class="nav-link text-lg-white text-uppercase"
+						<a class="nav-link text-lg-white text-uppercase ml-2 ml-sm-1 ml-xl-1"
 							href="#"><i class="fas fa-envelope-open-text d-lg-none"></i> Contact</a>
 					</li>
 					<li class="text-center d-flex d-lg-none align-items-center justify-content-center h-100">
-						<a class="brand-sidenav text-white font-weight-bold" href="#">Max Fitness.</a>
+						<a class="brand-sidenav text-white font-weight-bold ml-2 ml-xl-1" href="#">Max Fitness.</a>
 					</li>
 				</ul>
 			</div>
+            <div class="mobile-top-header d-block d-lg-flex">
+                <li class="list-inline-item dropdown my-auto">
+                    <a class="account-btn text-black nav-link d-block" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <div class="text-center text-white d-lg-flex flex-lg-row">
+                            <div class="my-lg-auto"><i class="fas fa-user account-btn-icon"></i></div>
+                            <p class="my-lg-auto mb-0">Account</p>
+                        </div>
+                    </a>
+                    <div class="dropdown-menu border-0" aria-labelledby="user-options">
+                        {% if request.user.is_authenticated %}
+                            {% if request.user.is_superuser %}
+                                <a href="{% url 'account_logout' %}" class="dropdown-item">Product Management</a>
+                            {% endif %}
+                            <a href="#" class="dropdown-item">My Profile</a>
+                            <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+                        {% else %}
+                            <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
+                            <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
+                        {% endif %}
+                    </div>
+                </li>
+                <li class="list-inline-item my-auto">
+                    <a class="bag-button {% if grand_total %}text-primary font-weight-bold{% else %}text-black{% endif %} nav-link d-block" href="">
+                        <div class="text-center text-white d-lg-flex flex-lg-row">
+                            <div class="my-lg-auto"><i class="fas fa-shopping-bag bag-btn-icon"></i></div>
+                            <p class="my-lg-auto mb-0">
+                                {% if grand_total %}
+                                    ${{ grand_total|floatformat:2 }}
+                                {% else %}
+                                    $0.00
+                                {% endif %}
+                            </p>
+                        </div>
+                    </a>
+                </li>
+            </div>
 		</nav>
     </header>
 
@@ -95,7 +139,7 @@
 	<div class="message-container"></div>
 	{% endif %}
 
-	{% block page_header %}
+	{% block page_hero %}
 	{% endblock %}
 
 	{% block content %}

@@ -56,13 +56,55 @@ html {
   }
 
   /* Navigation Bar */
+  .header-position {
+    position: absolute;
+    top: 2rem;
+    left: 0;
+    width: 100%;
+  }
+
+  .dropdown-menu{
+      z-index: 1;
+      width: 100%;
+  }
+
+  .mobile-top-header {
+      z-index: 1;
+  }
+
+  .my-account {
+    background: #FF5085;
+    padding: 0.2em 0.5rem;
+    color: #ffffff;
+    font-size: 1rem;
+    margin-right: 3rem;
+  }
+
+  .my-account > i {
+    font-size: 1rem;
+  }
 
   .navbar-brand{
     z-index: 1;
+    font-weight: bold;
   }
 
   .hamburger-icon {
     z-index: 1;
+  }
+
+  .account-btn-icon {
+    font-size: 1rem;
+    line-height: .75em;
+    vertical-align: -.0667em;
+    margin-right: 0;
+  }
+
+  .navbar-nav .dropdown-menu {
+    position: absolute;
+    background: -o-linear-gradient(top, #FF5085, #476E74);
+    background: -webkit-gradient(linear, left top, left bottom, from(#FF5085), to(#476E74));
+    background: linear-gradient(to bottom, #FF5085, #476E74);
   }
 
   .sidenav {
@@ -91,7 +133,6 @@ html {
     -webkit-transition: 0.3s;
     -o-transition: 0.3s;
     transition: 0.3s;
-    margin-left: 2rem;
   }
 
   .navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover {
@@ -163,15 +204,22 @@ html {
     left: 0;
     height: 100%;
     width: 100%;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 @media (min-width: 992px) {
+
+  .navbar-nav .dropdown-menu {
+      background: transparent;
+      border: none;
+      width: 100%;
+  }
+
   .sidenav {
     width: 100%; /* 0 width - change this with JavaScript */
     position: relative;
     background: transparent; /* Black*/
-    overflow-x: hidden; /* Disable horizontal scroll */
+    overflow-x: initial; /* Disable horizontal scroll */
     padding-top: initial; /* Place content 60px from the top */
     -webkit-transition: 0.5s;
     -o-transition: 0.5s;
@@ -189,10 +237,11 @@ html {
   .sidenav a {
     padding: initial;
     text-decoration: none;
-    font-size: 1rem;
-    color: #818181;
+    font-size: 0.7rem;
+    color: #ffffff;
     display: block;
     margin-left: initial;
+    font-weight: 600;
   }
 
   .navbar-light .navbar-nav .nav-link {
@@ -231,5 +280,71 @@ html {
     width: initial;
     overflow: initial;
 }
+
+.account-btn-icon {
+    font-size: 1rem;
+    line-height: .75em;
+    vertical-align: -.0667em;
+    margin-right: 0.5rem;
+  }
+
+.account-btn {
+      background: #FF5085;
+      padding: .2rem 0.5rem;
+  }
+
+.bag-btn-icon{
+    font-size: 1rem;
+    line-height: .75em;
+    vertical-align: -.0667em;
+    margin-right: 0.5rem;
 }
 
+.bag-button {
+    background: #FF5085;
+    padding: .2rem 0.5rem;
+}
+
+}
+
+@media (min-width: 1076px) {
+    .sidenav a {
+    padding: initial;
+    text-decoration: none;
+    font-size: 0.8rem;
+    color: #ffffff;
+    display: block;
+    margin-left: initial;
+    font-weight: 600;
+}
+}
+
+@media (min-width: 1200px) {  
+ .sidenav a {
+    padding: initial;
+    text-decoration: none;
+    font-size: 1rem;
+    color: #ffffff;
+    display: block;
+    margin-left: initial;
+    font-weight: 600;
+}   
+}
+
+/* Hero Section */
+
+.callout-container-img-bg {
+    height: 35rem;
+    background: url("/media/hero_img.jpg") no-repeat center top fixed;
+    background-size: cover;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    position: relative;
+}
