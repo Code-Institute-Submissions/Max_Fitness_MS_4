@@ -207,6 +207,26 @@ html {
     /* overflow: hidden; */
 }
 
+.btn-secondary {
+    color: #000000;
+    background-color: #ffffff;
+    border-color: #ffffff;
+    padding: 0.1rem 1rem;
+}
+
+.modal-header{
+    background: -o-linear-gradient(top, #FF5085, #476E74);
+    background: -webkit-gradient(linear, left top, left bottom, from(#FF5085), to(#476E74));
+    background: linear-gradient(to bottom, #FF5085, #476E74);
+}
+
+.modal-footer {
+    background: -o-linear-gradient(top, #FF5085, #476E74);
+    background: -webkit-gradient(linear, left top, left bottom, from(#FF5085), to(#476E74));
+    background: linear-gradient(to bottom, #FF5085, #476E74);
+}
+
+
 @media (min-width: 992px) {
 
   .navbar-nav .dropdown-menu {

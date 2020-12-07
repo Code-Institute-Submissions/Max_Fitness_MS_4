@@ -98,24 +98,12 @@
 			</div>
             <div class="mobile-top-header d-block d-lg-flex">
                 <li class="list-inline-item dropdown my-auto">
-                    <a class="account-btn text-black nav-link d-block" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="account-btn text-black nav-link d-block" href="#" id="user-options" type="button" data-toggle="modal" data-target="#exampleModalCenter">
                         <div class="text-center text-white d-lg-flex flex-lg-row">
                             <div class="my-lg-auto"><i class="fas fa-user account-btn-icon"></i></div>
                             <p class="my-lg-auto mb-0">Account</p>
                         </div>
                     </a>
-                    <div class="dropdown-menu border-0" aria-labelledby="user-options">
-                        {% if request.user.is_authenticated %}
-                            {% if request.user.is_superuser %}
-                                <a href="{% url 'account_logout' %}" class="dropdown-item">Product Management</a>
-                            {% endif %}
-                            <a href="#" class="dropdown-item">My Profile</a>
-                            <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
-                        {% else %}
-                            <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
-                            <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
-                        {% endif %}
-                    </div>
                 </li>
                 <li class="list-inline-item my-auto">
                     <a class="bag-button {% if grand_total %}text-primary font-weight-bold{% else %}text-black{% endif %} nav-link d-block" href="">
@@ -145,7 +133,7 @@
 	{% block content %}
 	{% endblock %}
 
-
+    {% include 'includes/account-modal.html' %}
 	{% block postloadjs %}
 	{% endblock %}
 </body>
