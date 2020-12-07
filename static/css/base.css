@@ -22,7 +22,7 @@ html {
   }
 
   h2 {
-    font-size: 1.35rem;
+    font-size: 1.5rem;
   }
   
   @media (min-width: 576px) {
@@ -52,6 +52,10 @@ html {
 
     p {
         font-size: 0.8rem;
+    }
+
+    h1 {
+        font-size: 3.5rem;
     }
   }
 
@@ -354,8 +358,10 @@ html {
 /* Hero Section */
 
 .callout-container-img-bg {
-    height: 35rem;
+    height: 40rem;
     background: url("/media/hero_img.jpg") no-repeat center top fixed;
+    background-color: #15314A;
+    background-blend-mode: soft-light;
     background-size: cover;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -367,4 +373,40 @@ html {
     -ms-flex-pack: center;
     justify-content: center;
     position: relative;
+}
+
+.lead {
+    font-weight: 600;
+}
+
+.hero-btn {
+    background: #FF5085;
+    padding: .3rem 1.5rem;
+    border-radius: 0;
+    border-color: #FF5085;
+}
+
+.hero-fmore--position {
+    position: relative;
+    padding: 2.5rem;
+    top: -4rem;
+    background: #fff;
+    -webkit-box-shadow: 0.1rem 0.1rem 1rem rgba(0, 0, 0, 0.4);
+            box-shadow: 0.1rem 0.1rem 1rem rgba(0, 0, 0, 0.4);
+}
+
+.icon-about {
+    fill: #FF5085;
+    height: 3rem;
+}
+
+/* Why Join Us */
+
+.h2--border::after {
+    background-color: #FF5085;
+    content: '';
+    display: block;
+    height: 0.15rem;
+    position: absolute;
+    width: 5.3rem;
 }
