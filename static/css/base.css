@@ -496,3 +496,105 @@ input:checked + .slider:before {
     border-radius: 0;
     border-color: #FF5085;
 }
+
+.viewall-link{
+    font-size: 1rem;
+}
+
+/* Products Section Index Page*/
+
+.color-overlay {
+    background-color: #15314A;
+    opacity: 0.8;
+    top: 0;
+    background-blend-mode: soft-light;
+    z-index: -1;
+}
+
+.img-products {
+    z-index: -2;
+    background-color: #15314A;
+}
+
+.product-category-h3 {
+    z-index: 1;
+    color: #ffffff;
+    top: 5rem;
+    font-size: 1.8rem;
+}
+
+
+.products-section-btn {
+    top: 11.5rem;
+    left: 1.3rem;
+    background: #FF5085;
+    padding: .2rem 1rem;
+    border-radius: 0;
+    border-color: #FF5085;
+}
+
+@media(min-width: 377px) {
+    .product-category-h3 {
+         z-index: 1;
+        color: #ffffff;
+        top: 9rem;
+        font-size: 2.3rem;
+    }
+
+    .products-section-btn {
+    top: 18rem;
+    left: 1.3rem;
+    background: #FF5085;
+    padding: .2rem 1rem;
+    border-radius: 0;
+    border-color: #FF5085;
+}
+}
+
+@media (min-width: 577px) {
+    .product-category-h3 {
+    z-index: 1;
+    color: #ffffff;
+    top: 2rem;
+    font-size: 1.8rem;
+}
+
+.products-section-btn {
+    top: 11rem;
+    left: 1.3rem;
+    background: #FF5085;
+    padding: .2rem 1rem;
+    border-radius: 0;
+    border-color: #FF5085;
+}
+}
+
+/* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
+@media (min-width: 992px) {  
+ .product-category-h3 {
+    z-index: 1;
+    color: #ffffff;
+    top: 5rem;
+    font-size: 1.8rem;
+}
+
+}
+ 
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {  
+    .product-category-h3 {
+    z-index: 1;
+    color: #ffffff;
+    top: 8rem;
+    font-size: 1.8rem;
+}
+
+.products-section-btn {
+    top: 14rem;
+    left: 1.3rem;
+    background: #FF5085;
+    padding: .2rem 1rem;
+    border-radius: 0;
+    border-color: #FF5085;
+}
+}
