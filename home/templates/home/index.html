@@ -642,9 +642,9 @@
         </div>
     </section>
     <section class="blog-section">
-        <div class="container p-sm-5 p-lg-0">
+        <div class="container">
             <div class="row">
-                <div class="col-12 mb-5">
+                <div class="col-12 mb-5 mb-sm-0 mb-lg-5">
                     <p class="section-tag text-uppercase text-gray font-weight-bold mt-5">blog</p>
                     <div class="d-flex">
                         <h2 class="h2--border">Latest Articles</h2>
@@ -653,6 +653,8 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="container p-sm-5 p-lg-0">
             <div class="row mb-4 shadow">
                 <div class="col-12 col-lg-5 p-0">
                     <img src="{{ MEDIA_URL}}weight_cutting_diet.jpg" alt="" class="img-fluid">
@@ -706,6 +708,64 @@
             </div>
         </div>
     </section>
+    <div class="success-stories d-flex bg-charcoal-light">
+        <div class="container mt-auto mb-auto">
+             <div class="row">
+                <div class="col-12 mb-lg-5">
+                    <p class="section-tag text-uppercase text-black font-weight-bold mt-5">User Stories</p>
+                    <div class="d-flex">
+                        <h2 class="h2--border text-white">What Our Customers say</h2>
+                        <a href="" class="ml-auto
+                         text-uppercase viewall-link my-auto d-none d-lg-block">View all</a>
+                    </div>
+                </div>
+            </div>
+            <div class="row flex-column p-5">
+                <div id="carouselControls" class="carousel slide mx-auto" data-ride="carousel">
+					<ol class="carousel-indicators">
+						<li data-target="#carouselControls" data-slide-to="0" class="active"></li>
+						<li data-target="#carouselControls" data-slide-to="1"></li>
+						<li data-target="#carouselControls" data-slide-to="2"></li>
+					</ol>
+					<div class="carousel-inner">
+						<div class="carousel-item active story1">
+							<p class="text-white mx-auto text-center">Thanks to Max Fitness training plan I was able to fix my posture and improve muscle tone. Finaly I feel healty and fit!</p>
+                            <div class="d-flex flex-row justify-content-center">
+                                <div class="mt-5 story-one-img-container">
+                                </div>
+                                <div class="mt-5 story-name">
+                                    <p class="ml-3 text-white">Sarah W.</p>
+                                    <p class="ml-3 text-orange">Health Care Worker</p>
+                                </div>
+                            </div>
+					    </div>
+                        <div class="carousel-item story2">
+							<p class="text-white mx-auto text-center">Max Fitness has helped me build my body physique! I have never been more happier with the results.</p>
+                            <div class="d-flex flex-row justify-content-center">
+                                <div class="mt-5 story-two-img-container">
+                                </div>
+                                <div class="mt-5 story-name">
+                                    <p class="ml-3 text-white">John B.</p>
+                                    <p class="ml-3 text-orange">Construction Worker</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item story3">
+							<p class="text-white mx-auto text-center">One of the best fitness enviroments I have witness so far. Everyone is friendly and professional.</p>
+                            <div class="d-flex flex-row justify-content-center">
+                                <div class="mt-5 story-three-img-container">
+                                </div>
+                                <div class="mt-5 story-name">
+                                    <p class="ml-3 text-white">Max G.</p>
+                                    <p class="ml-3 text-orange">Professional Athlete</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}
 
 {% block postloadjs %}
