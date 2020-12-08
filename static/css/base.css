@@ -411,8 +411,12 @@ html {
     width: 5.3rem;
 }
 
-.text-gray{
+.text-gray {
     color: #707070;
+}
+
+.text-pink {
+    color: #FF5085;
 }
 
 
@@ -498,14 +502,16 @@ input:checked + .slider:before {
 }
 
 .viewall-link{
-    font-size: 1rem;
+    font-size: .8rem;
+    color: #FF5085;
+    font-weight: bold;
 }
 
 /* Products Section Index Page*/
 
 .color-overlay {
     background-color: #15314A;
-    opacity: 0.8;
+    opacity: 0.6;
     top: 0;
     background-blend-mode: soft-light;
     z-index: -1;
@@ -597,4 +603,13 @@ input:checked + .slider:before {
     border-radius: 0;
     border-color: #FF5085;
 }
+}
+
+/* Blog Section Index Page */
+
+.blog-section-tag {
+    background: #FF5085;
+    padding: .2rem 1rem;
+    border-radius: 0;
+    border-color: #ff5085;
 }
