@@ -1,0 +1,93 @@
+
+.callout-container-img-bg {
+    height: 50rem;
+    background: url("/media/hero_img.jpg") no-repeat center top fixed;
+    background-color: #15314A;
+    background-blend-mode: soft-light;
+    background-size: cover;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    position: relative;
+}
+
+
+
+/* Allauth Templates Style */
+
+label {
+    display: block;
+}
+
+label[for="id_remember"] {
+    display: inline-block;
+    width: initial;
+}
+
+input {
+    display: inline-block;
+    padding: .375rem .75rem;
+    font-size: 0.8rem;
+    width: 15rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+input[type="checkbox"]{
+    width: initial;
+}
+
+input[type="submit"]{
+    width: initial;
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {  
+ input {
+    display: inline-block;
+    padding: .375rem .75rem;
+    font-size: 0.8rem;
+    width: 25rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+input[type="submit"]{
+    width: initial;
+}
+
+input[type="checkbox"]{
+    width: initial;
+}
+}
+ 
+/* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
+@media (min-width: 768px) {  
+ 
+}
+ 
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) { 
+ 
+}
+ 
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {  
+    
+}
