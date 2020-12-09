@@ -60,7 +60,7 @@
 					</li>
 					<li class="nav-item">
 						<a class="nav-link text-lg-white text-uppercase ml-2 ml-sm-1 ml-xl-1"
-							href="#"><i class="fas fa-home d-lg-none"></i> home</a>
+							href="{% url 'home' %}"><i class="fas fa-home d-lg-none"></i> home</a>
 					</li>
 					<li class="d-lg-none">
 						<hr>
@@ -74,6 +74,7 @@
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                 <a class="dropdown-item" href="#">Nutrition & Diet</a>
                                 <a class="dropdown-item" href="#">Training Plans</a>
+                                <a class="dropdown-item" href="{% url 'products' %}">All Products</a>
                             </div>
                         </div>
 					</li>
@@ -128,7 +129,7 @@
 	{% endif %}
 
 	{% block page_hero %}
-	{% endblock %}
+    {% endblock %}
 
 	{% block content %}
 	{% endblock %}
