@@ -1,0 +1,119 @@
+[
+{
+    "model": "products.product",
+    "pk": 1,
+    "fields": {
+        "category": 2,
+        "name": "Fitness Workout Plan",
+        "description": "Fitness Workout Plan is a training plan for those who want to learn how to train. The plan is tailored to personally suit your current level of training knowledge and body type. We ensure that you get the best your money can buy at any time.",
+        "price": "20.00",
+        "rating": "4.50",
+        "image_url": "",
+        "image": "fitness_workout_plan.jpg"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 2,
+    "fields": {
+        "category": 2,
+        "name": "Fitness Intermediate Workout",
+        "description": "Fitness Intermediate Workout Plan is a training plan for those who want to learn how to train. The plan is tailored to personally suit your current level of training knowledge and body type. We ensure that you get the best your money can buy at any time.",
+        "price": "30.00",
+        "rating": "4.80",
+        "image_url": "",
+        "image": "fitness_intermediate_workout_plan.jpg"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 3,
+    "fields": {
+        "category": 2,
+        "name": "Fitness Advanced Workout",
+        "description": "Fitness Advanced Workout is a training plan for those who want to learn how to train. The plan is tailored to personally suit your current level of training knowledge and body type. We ensure that you get the best your money can buy at any time.",
+        "price": "40.00",
+        "rating": "4.90",
+        "image_url": "",
+        "image": "fitness_advanced_workout_plan.jpg"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 4,
+    "fields": {
+        "category": 2,
+        "name": "Crossfit Advanced Workout",
+        "description": "Crossfit Advanced Workout is a training plan for those who want to learn how to train. The plan is tailored to personally suit your current level of training knowledge and body type. We ensure that you get the best your money can buy at any time.",
+        "price": "40.00",
+        "rating": "4.90",
+        "image_url": "",
+        "image": "crossfit_advanced_workout_plan.jpg"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 5,
+    "fields": {
+        "category": 2,
+        "name": "Crossfit Intermediate Plan",
+        "description": "Crossfit Intermediate Plan is a training plan for those who want to learn how to train. The plan is tailored to personally suit your current level of training knowledge and body type. We ensure that you get the best your money can buy at any time.",
+        "price": "30.00",
+        "rating": "4.60",
+        "image_url": "",
+        "image": "crossfit_intermediate_workout_plan.jpg"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 6,
+    "fields": {
+        "category": 2,
+        "name": "Crossfit Workout Plan",
+        "description": "Crossfit Workout Plan is a training plan for those who want to learn how to train. The plan is tailored to personally suit your current level of training knowledge and body type. We ensure that you get the best your money can buy at any time.",
+        "price": "20.00",
+        "rating": "4.40",
+        "image_url": "",
+        "image": "crossfit_workout_plan.jpg"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 7,
+    "fields": {
+        "category": 1,
+        "name": "Fat Loss Diet",
+        "description": "The Fat Loss Diet plan is built for those who want to lose fat while building muscle. It contains a diet plan specially tailored for your body type. We ensure that you get the number of nutrients your body needs for your daily activities so that you can lose fat and feel healthy at the same time.",
+        "price": "30.00",
+        "rating": "4.90",
+        "image_url": "",
+        "image": "fat_loss_diet.jpg"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 8,
+    "fields": {
+        "category": 1,
+        "name": "Weight Cutting Diet",
+        "description": "Weight Cutting Diet plan is built for those who want to lose fat while building muscle. It contains a diet plan specially tailored for your body type. We ensure that you get the number of nutrients your body needs for your daily activities so that you can lose fat and feel healthy at the same time.",
+        "price": "35.00",
+        "rating": "4.30",
+        "image_url": "",
+        "image": "weight_cutting_diet.jpg"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 9,
+    "fields": {
+        "category": 1,
+        "name": "Muscle Building Diet",
+        "description": "Muscle Building Diet plan is built for those who want to gain muscle mass. It contains a diet plan specially tailored for your body type. We ensure that you get the number of nutrients your body needs for your daily activities so that you can lose fat and build muscle at the same time.",
+        "price": "40.00",
+        "rating": "4.90",
+        "image_url": "",
+        "image": "muscle_building_diet.jpg"
+    }
+}
+]
