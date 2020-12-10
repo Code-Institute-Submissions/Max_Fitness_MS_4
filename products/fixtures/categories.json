@@ -1,0 +1,26 @@
+[
+{
+    "model": "products.category",
+    "pk": 1,
+    "fields": {
+        "name": "nutrition_and_diet",
+        "friendly_name": "Nutrition and Diet"
+    }
+},
+{
+    "model": "products.category",
+    "pk": 2,
+    "fields": {
+        "name": "training_plan",
+        "friendly_name": "Training Plan"
+    }
+},
+{
+    "model": "products.category",
+    "pk": 3,
+    "fields": {
+        "name": "membership",
+        "friendly_name": "Membership"
+    }
+}
+]
