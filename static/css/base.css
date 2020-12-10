@@ -741,3 +741,9 @@ footer {
 }
 
 }
+
+/* Product Detail Page */
+
+.product-detail-container {
+    height: 40rem;
+}
