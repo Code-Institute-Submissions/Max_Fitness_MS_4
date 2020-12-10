@@ -1,0 +1,22 @@
+.product-container-img-bg{
+    min-height: 40rem;
+    height: unset;
+    background: url(/media/hero_img.jpg) no-repeat center top fixed;
+    background-color: #15314A;
+    background-blend-mode: soft-light;
+    background-size: cover;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    position: relative;
+}
+
+.product-container-img-bg > div.container-fluid {
+    padding-top: 5rem;
+}
