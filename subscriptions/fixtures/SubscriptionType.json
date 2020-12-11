@@ -1,0 +1,16 @@
+[
+{
+    "model": "subscriptions.subscriptiontype",
+    "pk": 1,
+    "fields": {
+        "name": "monthly"
+    }
+},
+{
+    "model": "subscriptions.subscriptiontype",
+    "pk": 2,
+    "fields": {
+        "name": "annual"
+    }
+}
+]

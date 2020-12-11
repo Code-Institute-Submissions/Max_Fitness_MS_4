@@ -1,0 +1,80 @@
+[
+{
+    "model": "subscriptions.membership",
+    "pk": 1,
+    "fields": {
+        "category": 3,
+        "subscriptionType": 1,
+        "name": "Gym Membership",
+        "description": "This is a monthly subscription plan for a gym membership at Max Fitness. Purchasing the plan you get unlimited access to our training facilities. With a monthly subscription, you also get free access to:",
+        "included_extras": "Free Pool Pass, Free Wifi, Locker Rooms, Progression Tracking",
+        "price": "20.00",
+        "rating": "4.90"
+    }
+},
+{
+    "model": "subscriptions.membership",
+    "pk": 2,
+    "fields": {
+        "category": 3,
+        "subscriptionType": 1,
+        "name": "Swimming Team Membership",
+        "description": "This is a monthly subscription plan for a swimming team membership at Max Fitness. Purchasing the plan you get unlimited access to our pool facilities. With a monthly subscription, you also get free access to:",
+        "included_extras": "Free Pool Pass, Free Wifi, Locker Rooms, Progression Tracking",
+        "price": "30.00",
+        "rating": "4.70"
+    }
+},
+{
+    "model": "subscriptions.membership",
+    "pk": 3,
+    "fields": {
+        "category": 3,
+        "subscriptionType": 1,
+        "name": "Pool Pass",
+        "description": "This is a monthly subscription plan for a pool pass membership at Max Fitness. Purchasing the plan you get unlimited access to our pool facilities. With a monthly subscription, you also get free access to:",
+        "included_extras": "Free Wifi, Locker Rooms",
+        "price": "18.00",
+        "rating": "4.30"
+    }
+},
+{
+    "model": "subscriptions.membership",
+    "pk": 4,
+    "fields": {
+        "category": 3,
+        "subscriptionType": 2,
+        "name": "Swimming Team Membership",
+        "description": "This is a yearly subscription plan for a swimming team membership at Max Fitness. Purchasing the plan you get unlimited access to our pool facilities. With a monthly subscription, you also get free access to:",
+        "included_extras": "Free Pool Pass, Free Wifi, Locker Rooms, Progression Tracking",
+        "price": "288.00",
+        "rating": "4.80"
+    }
+},
+{
+    "model": "subscriptions.membership",
+    "pk": 5,
+    "fields": {
+        "category": 3,
+        "subscriptionType": 2,
+        "name": "Gym Membership",
+        "description": "This is a yearly subscription plan for a gym membership at Max Fitness. Purchasing the plan you get unlimited access to our training facilities. With a monthly subscription, you also get free access to:",
+        "included_extras": "Free Pool Pass, Free Wifi, Locker Rooms, Progression Tracking",
+        "price": "192.00",
+        "rating": "4.50"
+    }
+},
+{
+    "model": "subscriptions.membership",
+    "pk": 6,
+    "fields": {
+        "category": 3,
+        "subscriptionType": 2,
+        "name": "Pool Pass",
+        "description": "This is a monthly subscription plan for a pool pass membership at Max Fitness. Purchasing the plan you get unlimited access to our pool facilities. With a monthly subscription, you also get free access to:",
+        "included_extras": "Free Wifi, Locker Rooms",
+        "price": "172.80",
+        "rating": "4.70"
+    }
+}
+]
