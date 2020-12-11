@@ -27,4 +27,13 @@
 
 .card {
     border: none;
+    height: 100%;
+}
+
+.card-header {
+    height: 4.3rem;
+}
+
+h4 {
+    font-size: 1rem;
 }
