@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load subscriptions_tools %}
+
+{% block page_hero %}
+<div class="subscriptions-container-img-bg">
+        <div class="container">
+			<div class="row">
+				<div class="col-12 hero-background-color text-center">
+                    <h1 class="text-white mb-5">Bellow you will find subscription plans.</h1>   
+				</div>
+			</div>
+            <div class="row">
+            </div>
+		</div>
+	</div>
+
+{% endblock %}
+
+{% block content %}
+           <div class="container">
+                <div class="row pt-5 pb-5">
+                {% for subscription in memberships %}
+                     <div class="col-sm-6 col-md-6 col-lg-4">
+                        <div class="card card-background text-center">
+                            <div class="card-header bg-transparent text-white font-weight-bold">{{ subscription.name }}</div>
+                            <div class="card-body">
+                                <h5 class="card-title text-white text-capitalize">{{ subscription.subscriptionType }} subscription</h5>
+                                <p class="text-white">${{ subscription.price }}</p>
+                                
+                                {% for instance in subscription.included_extras|split:',' %}
+                                <p class="card-text text-white">
+                                    {{instance}}
+                                </p>
+                                {% endfor %}
+                            </div>
+                            <div class="card-footer">
+                                <a href="#" class="btn btn-primary offer-btn">Purchase</a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+                </div>
+           </div>
+{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/subscriptions.css' %}">
+{% endblock %}
