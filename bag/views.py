@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, HttpResponse
 from django.contrib import messages
 
 # Create your views here.
@@ -37,3 +37,25 @@ def add_to_bag(request, item_id):
             request.session['bag'] = bag
 
     return redirect(redirect_url)
+
+
+def remove_from_bag(request, item_id):
+
+    try:
+        subscriptionType = None
+        if 'subscriptionType' in request.POST:
+            subscriptionType = request.POST.get('subscriptionType')
+
+        bag = request.session.get('bag', {})
+        subscription_bag = request.session.get('subscription_bag', {})
+
+        if subscriptionType:
+            subscription_bag.pop(item_id)
+            request.session['subscription_bag'] = subscription_bag
+        else:
+            request.session['bag'] = bag
+            bag.pop(item_id)
+
+        return HttpResponse(status=200)
+    except Exception as e:
+        return HttpResponse(status=500)

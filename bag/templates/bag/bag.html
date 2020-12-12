@@ -55,6 +55,7 @@
                                             </td>
                                             <td class="py-3">
                                                 <p class="my-0">${{ item.product.price }}</p>
+                                                <a class="remove-item text-danger" id="remove_{{ item.item_id }}"><small>Remove</small></a>
                                             </td>
                                         </tr>
                                     {% else %}
@@ -69,9 +70,11 @@
                                                 <p class="my-0">${{ item.subscription.price }}</p>
                                                 <p class="my-0">type: {{ item.subscription.subscriptionType }}</p>
                                             </td>
-                                            <td class="py-3">
+                                            <td class="py-3 w-25">
                                                 <p class="my-0">${{ item.subscription.price }}</p>
+                                                <a class="remove-item text-danger" id="remove_{{ item.item_id }}" data-subscription_type="{{ item.subscription.subscriptionType }}"><small>Remove</small></a>
                                             </td>
+                                            
                                         </tr>
                                     {% endif %}
                                 {% endfor %}
@@ -82,13 +85,13 @@
                             </tr>
                             <tr>
                                 <td colspan="5" class="text-right">
-                                    <a href="{% url 'products' %}" class="btn btn-primary products-section-btn">
+                                    <a href="{% url 'products' %}" class="btn btn-primary mt-3 products-section-btn">
                                         <span class="icon">
                                             <i class="fas fa-chevron-left"></i>
                                         </span>
                                         <span class="text-uppercase">Keep Shopping</span>
                                     </a>
-                                    <a href="" class="btn btn-primary products-section-btn">
+                                    <a href="" class="btn btn-primary mt-3 products-section-btn">
                                         <span class="text-uppercase">Secure Checkout</span>
                                         <span class="icon">
                                             <i class="fas fa-lock"></i>
@@ -102,4 +105,8 @@
             </div>
         </div>
     </div>
+{% endblock %}
+
+{% block postloadjs %}
+    <script src="{% static 'js/bag_app.js' %}"></script>
 {% endblock %}
