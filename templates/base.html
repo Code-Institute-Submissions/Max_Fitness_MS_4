@@ -107,12 +107,12 @@
                     </a>
                 </li>
                 <li class="list-inline-item my-auto">
-                    <a class="bag-button {% if grand_total %}text-primary font-weight-bold{% else %}text-black{% endif %} nav-link d-block" href="">
+                    <a class="bag-button {% if grand_total %}text-primary font-weight-bold{% else %}text-black{% endif %} nav-link d-block" href="{% url 'bag' %}">
                         <div class="text-center text-white d-lg-flex flex-lg-row">
                             <div class="my-lg-auto"><i class="fas fa-shopping-bag bag-btn-icon"></i></div>
                             <p class="my-lg-auto mb-0">
-                                {% if grand_total %}
-                                    ${{ grand_total|floatformat:2 }}
+                                {% if total %}
+                                    ${{ total|floatformat:2 }}
                                 {% else %}
                                     $0.00
                                 {% endif %}
