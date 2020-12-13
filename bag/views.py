@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, HttpResponse
+from django.shortcuts import render, redirect, HttpResponse, get_object_or_404
 from products.models import Product
 from subscriptions.models import Membership
 from django.contrib import messages
@@ -24,7 +24,7 @@ def add_to_bag(request, item_id):
     subscription_bag = request.session.get('subscription_bag', {})
 
     if subscriptionType:
-        membership = Membership.objects.get(pk=item_id)
+        membership = get_object_or_404(Membership, pk=item_id)
         if item_id in list(subscription_bag.keys()):
             messages.info(request, f"""{membership.name} has already been
             added to your bag.""")
@@ -34,7 +34,7 @@ def add_to_bag(request, item_id):
             messages.success(request, f"""{membership.name} has been
             added to your bag.""")
     else:
-        product = Product.objects.get(pk=item_id)
+        product = get_object_or_404(Product, pk=item_id)
         if item_id in list(bag.keys()):
             messages.info(request, f"""{product.name} has already been
             added to your bag.""")
@@ -56,14 +56,14 @@ def remove_from_bag(request, item_id):
         subscription_bag = request.session.get('subscription_bag', {})
 
         if subscriptionType:
-            membership = Membership.objects.get(pk=item_id)
+            membership = get_object_or_404(Membership, pk=item_id)
             subscription_bag.pop(item_id)
             request.session['subscription_bag'] = subscription_bag
             messages.info(request, f"""{membership.name} has been
             removed from your bag.""")
 
         else:
-            product = Product.objects.get(pk=item_id)
+            product = get_object_or_404(Product, pk=item_id)
             request.session['bag'] = bag
             bag.pop(item_id)
             messages.info(request, f"""{product.name} has been
@@ -71,6 +71,6 @@ def remove_from_bag(request, item_id):
 
         return HttpResponse(status=200)
 
-    except Exception as e:
-        print(e)
+    except Exception as error:
+        messages.warning(request, f"""Error removing item: {error}""")
         return HttpResponse(status=500)
