@@ -123,7 +123,13 @@
     </header>
 
 	{% if messages %}
-	<div class="message-container"></div>
+	<div class="message-container">
+        {% for message in messages %}
+            {% include 'includes/toasts/success_toast.html' %}
+        {% endfor %}
+
+
+    </div>
 	{% endif %}
 
 	{% block page_hero %}
@@ -170,10 +176,29 @@
         </div>
     </footer>
 
-    {% include 'includes/account-modal.html' %}
+    {% if messages %}
+        <div class="message-container">
+            {% for message in messages %}
+                {% with message.level as level %}
+                    {% if level == 40 %}
+                        {% include 'includes/toasts/error_toast.html' %}
+                    {% elif level == 30 %}
+                        {% include 'includes/toasts/warning_toast.html' %}
+                    {% elif level == 25 %}
+                        {% include 'includes/toasts/success_toast.html' %}
+                    {% else %}
+                        {% include 'includes/toasts/info_toast.html' %}
+                    {% endif %}
+                {% endwith %}
+            {% endfor %}
+        </div>
+    {% endif %}
+
 	{% block postloadjs %}
 	{% endblock %}
     <script src="{% static 'js/nav-bar.js' %}"></script>
+    <script src="{% static 'js/base.js' %}"></script>
+
 </body>
 
 </html>

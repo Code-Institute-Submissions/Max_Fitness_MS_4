@@ -20,7 +20,6 @@ const csrftoken = getCookie('csrftoken');
 $(".remove-item").click(function(event){
     let itemId = $(this).attr('id').split('remove_')[1];
     let subscriptionType= $(this).data('subscription_type');
-    console.log(subscriptionType);
     let url = "/bag/remove/" + itemId + '/';
     let data = {
         "csrfmiddlewaretoken": csrftoken,

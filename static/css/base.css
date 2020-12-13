@@ -747,3 +747,29 @@ footer {
 .product-detail-container {
     height: 40rem;
 }
+
+/* Toasts Style */
+
+.message-container {
+    position: absolute;
+    right: 0;
+    top: 7rem;
+    z-index: 99999;
+}
+
+.custom-toast {
+    overflow: visible;
+}
+
+.toast-capper {
+    height: 5px;
+}
+
+@media (min-width: 992px) {  
+ .message-container {
+    position: absolute;
+    right: 15px;
+    top: 139px;
+    z-index: 99999;
+}
+}

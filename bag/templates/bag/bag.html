@@ -21,14 +21,14 @@
     </div>
     <div class="container">
         <div class="row">
-            <div class="col-12">
+            <div class="col-12 pt-5">
                 <hr>
                 <h2>Shopping Bag</h2>
                 <hr>
             </div>
         </div>
         <div class="row">
-            <div class="col-12 hero-background-color text-center">
+            <div class="col-12 pb-5 hero-background-color text-center">
                 {% if bag_items %}
                     <div class="table-responsive">
                         <table class="table table-sm table-borderless">
@@ -55,7 +55,7 @@
                                             </td>
                                             <td class="py-3">
                                                 <p class="my-0">${{ item.product.price }}</p>
-                                                <a class="remove-item text-danger" id="remove_{{ item.item_id }}"><small>Remove</small></a>
+                                                <a class="remove-item text-danger" id="remove_{{ item.item_id }}" data-subscription_type="{{ item.subscription.subscriptionType }}"><small>Remove</small></a>
                                             </td>
                                         </tr>
                                     {% else %}
@@ -101,6 +101,9 @@
                         </tr>
                         </table>
                     </div>
+                    {% else %}
+                    <p class="text-left ml-2">Your bag is empty</p>
+                    <hr>
                 {% endif %}       
             </div>
         </div>
