@@ -52,7 +52,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
 
-    # Other 
+    # Other
     'crispy_forms',
 ]
 
