@@ -50,3 +50,40 @@ card.addEventListner('change', function(event){
         errorDiv.textContent = '';
     }
 });
+
+// Handle submit event of Stripe/Order Form 
+form.addEventListner('submit', function(event) {
+    // Prevent default action
+    event.preventDefault();
+    card.update({"disabled": true});
+
+    $("#submit-button").attr('disabled', true);
+
+    // Confirm card payment
+    // Includes intent information fields 
+    stripe.confirmCardPayment(clientSecret, {
+        payment_method: {
+            card: card,
+        }
+    }).then(function(response) {
+        // Note: In future git version try to re-factor the code logic such that you 
+        // use this statement:
+        // if (response.paymentIntent && response.paymentIntent.status === 'succeeded')
+
+        if (response.error) {
+            // Handle unsuccessful, processing, or canceled payments and API errors here
+            let errorDiv = document.getElementById('card-errors'); 
+            let html = `
+                <span class="icon" role="alert"> 
+                    <i class="fas fa-times"></i>
+                </span>
+                <span>${response.error.message}</span>`;
+            $(errorDiv).html(html);
+            card.update({'disabled': false});
+            $('#submit-button').attr('disabled', false);
+        } else {
+            // Handle successful payment here
+            form.submit();
+        }
+    });
+})
