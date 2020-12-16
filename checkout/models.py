@@ -39,7 +39,7 @@ class Order(models.Model):
         Update grand total each time a line item is added,
         accounting for delivery costs.
         """
-        self.order_total = self.lineitems.aggregate(Sum('price'))['lineitem_total_sum']
+        self.order_total = self.lineitems.aggregate(Sum('price'))['price__sum'] or 0
         self.save()
 
     def save(self, *args, **kwargs):
@@ -64,8 +64,17 @@ class OrderLineItem(models.Model):
     subscription = models.ForeignKey(Membership, null=True, blank=True,
                                      on_delete=models.CASCADE)
     price = models.DecimalField(max_digits=6, decimal_places=2,
-                                         null=False, blank=False, 
-                                         editable=False)
+                                null=True, blank=False,
+                                editable=False)
+
+    def save(self, *args, **kwargs):
+        """
+        On save get price from the product model
+        """
+
+        if not self.price:
+            self.price = self.product.price
+        super().save(*args, **kwargs)
 
     def __str__(self):
         if self.product:
