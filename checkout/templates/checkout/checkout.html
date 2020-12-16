@@ -82,7 +82,7 @@
                 </div>
             </div>
             <div class="col-12 col-lg-6 pt-5 pb-5">
-                <form action="{ % url 'checkout' %}" method="POST" id="payment-form">
+                <form action="{% url 'checkout' %}" method="POST" id="payment-form">
                     {% csrf_token %}
                     <fieldset class="rounded mb-5">
                         <legend class="fieldset-label small text-black px-2 w-auto">Details</legend>
