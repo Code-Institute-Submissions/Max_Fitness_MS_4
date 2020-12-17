@@ -35,7 +35,7 @@ let card = elements.create("card", {style: style});
 card.mount("#card-element");
 
 // Handle realtime validation errors on the card element
-card.addEventListner('change', function(event){
+card.addEventListener('change', function(event){
     let errorDiv = document.getElementById('card-errors');
     if (event.error) {
         let html = `
@@ -51,8 +51,10 @@ card.addEventListner('change', function(event){
     }
 });
 
+let form = document.getElementById('payment-form');
+
 // Handle submit event of Stripe/Order Form 
-form.addEventListner('submit', function(event) {
+form.addEventListener('submit', function(event) {
     // Prevent default action
     event.preventDefault();
     card.update({"disabled": true});
