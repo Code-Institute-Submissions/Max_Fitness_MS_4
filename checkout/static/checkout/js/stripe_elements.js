@@ -58,7 +58,7 @@ form.addEventListener('submit', function(event) {
     // Prevent default action
     event.preventDefault();
     card.update({"disabled": true});
-
+    $('#loading-overlay').fadeToggle(100);
     $("#submit-button").attr('disabled', true);
 
     // Confirm card payment
@@ -81,6 +81,7 @@ form.addEventListener('submit', function(event) {
                 </span>
                 <span>${response.error.message}</span>`;
             $(errorDiv).html(html);
+            $('#loading-overlay').fadeToggle(100);
             card.update({'disabled': false});
             $('#submit-button').attr('disabled', false);
         } else {
