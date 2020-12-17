@@ -61,16 +61,17 @@ def checkout(request):
         # and use them to create instance of OrderLineItem for each.
         if order_form.is_valid():
             order = order_form.save()
-
             for item in bag_items:
+                print(item)
                 if item['category'] != "membership":
                     try:
                         product = get_object_or_404(Product, pk=item['item_id'])
                         order_line_item = OrderLineItem(
                             order=order,
                             product=product,
-                            price=product.price
+                            price=product.price,
                         )
+                        print(product)
                         order_line_item.save()
                     except Product.DoesNotExist:
                         messages.error(request, """One of the products in your bag
@@ -81,16 +82,18 @@ def checkout(request):
                 else:
                     try:
                         subscription = get_object_or_404(Membership, pk=item['item_id'])
+                        print(subscription)
                         order_line_item = OrderLineItem(
                             order=order,
                             subscription=subscription,
-                            price=subscription.price
+                            price=subscription.price,
                         )
+                        order_line_item.save()
                     except Membership.DoesNotExist:
                         messages.error(request, """One of the products in your bag
                         wasn't found in our database.
                         Please call us for assistance!""")
-                return redirect(reverse('checkout_success', args=[order.order_number]))
+            return redirect(reverse('checkout_success', args=[order.order_number]))
 
             # Appoint value if the user wanted to save info
             request.session['save-info'] = 'save-info' in request.POST
@@ -133,6 +136,8 @@ def checkout_success(request, order_number):
 
     if 'bag' in request.session:
         del request.session['bag']
+    if 'subscription_bag' in request.session:
+        del request.session['subscription_bag']
 
     template = 'checkout/checkout_success.html'
     context = {

@@ -73,7 +73,11 @@ class OrderLineItem(models.Model):
         """
 
         if not self.price:
-            self.price = self.product.price
+            if self.product:
+                self.price = self.product.price
+            if self.subscription:
+                self.price = self.subscription.price
+
         super().save(*args, **kwargs)
 
     def __str__(self):
