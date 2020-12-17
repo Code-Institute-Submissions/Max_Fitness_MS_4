@@ -21,7 +21,6 @@ class StripeWH_Handler():
         """
 
         # Each time user completes the payment process
-
         return HttpResponse(
             content=f'Webhook received: {event["type"]}',
             status=200
