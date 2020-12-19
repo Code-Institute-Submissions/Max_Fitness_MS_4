@@ -37,13 +37,13 @@ def cache_checkout_data(request):
         stripe.PaymentIntent.modify(pid, metadata={
             'bag': json.dumps(bag),
             'subscription_bag': json.dumps(subscription_bag),
-            'save-info': request.POST.get('save-info'),
-            'username': request.user,
+            'save_info': request.POST.get('save_info'),
+            'user': request.user,
         })
         return HttpResponse(status=200)
     except Exception as e:
         messages.error(request, f'Sorry, your payment cannot be \
-            processed right now. Please try again later.{e}')
+            processed right now. Please try again later.')
         return HttpResponse(content=e, status=400)
 
 
@@ -51,10 +51,19 @@ def checkout(request):
     """
     Handle checkout page and checkout form POST request
     """
-    # Get bag items
-    bag = bag_contents(request)
-    bag_items = bag['bag_items']
+    bag = request.session.get('bag', {})
+    subscription_bag = request.session.get('subscription_bag', {})
 
+    # Array list of items
+    bag_items = []
+    if bag:
+        for item in bag.items():
+            bag_items.append(item)
+
+    if subscription_bag:
+        for item in subscription_bag.items():
+            bag_items.append(item)
+    print(bag_items)
     # Redirect if there are no items in the bag
     if not bag_items:
         messages.error(request, "There's nothing in your bag at the moment")
@@ -69,7 +78,8 @@ def checkout(request):
             Did you forget to set it in your enviroment?')
 
     # Sum price of current items in the shopping bag
-    total = bag['total']
+    bag_context = bag_contents(request)
+    total = bag_context['total']
     stripe_total = round(total * 100)
 
     if request.method == 'POST':
@@ -89,18 +99,21 @@ def checkout(request):
         # If the form is valid it will loop through bag items
         # and use them to create instance of OrderLineItem for each.
         if order_form.is_valid():
-            order = order_form.save()
-            for item in bag_items:
-                print(item)
-                if item['category'] != "membership":
+            order = order_form.save(commit=False)
+            pid = request.POST.get('client_secret').split('_secret')[0]
+            order.stripe_pid = pid
+            order.original_bag = json.dumps(bag_items)
+            order.save()
+
+            for item_id, category in bag_items:
+                if category != 'membership':
                     try:
-                        product = get_object_or_404(Product, pk=item['item_id'])
+                        product = get_object_or_404(Product, pk=item_id)
                         order_line_item = OrderLineItem(
                             order=order,
                             product=product,
                             price=product.price,
                         )
-                        print(product)
                         order_line_item.save()
                     except Product.DoesNotExist:
                         messages.error(request, """One of the products in your bag
@@ -110,8 +123,7 @@ def checkout(request):
                         return redirect(reverse('view_bag'))
                 else:
                     try:
-                        subscription = get_object_or_404(Membership, pk=item['item_id'])
-                        print(subscription)
+                        subscription = get_object_or_404(Membership, pk=item_id)
                         order_line_item = OrderLineItem(
                             order=order,
                             subscription=subscription,
@@ -125,7 +137,7 @@ def checkout(request):
             return redirect(reverse('checkout_success', args=[order.order_number]))
 
             # Appoint value if the user wanted to save info
-            request.session['save-info'] = 'save-info' in request.POST
+            request.session['save_info'] = 'save-info' in request.POST
 
         else:
             messages.error(request, 'There was an error with your form. \
