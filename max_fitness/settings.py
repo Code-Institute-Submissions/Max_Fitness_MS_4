@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'bag',
     'subscriptions',
     'checkout',
+    'profiles',
 
     # Allauth
     'allauth',
