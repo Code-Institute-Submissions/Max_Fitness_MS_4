@@ -129,8 +129,6 @@
         {% for message in messages %}
             {% include 'includes/toasts/success_toast.html' %}
         {% endfor %}
-
-
     </div>
 	{% endif %}
 
@@ -196,11 +194,13 @@
         </div>
     {% endif %}
 
-	{% block postloadjs %}
-	{% endblock %}
+    {% include 'includes/modals/account-modal.html' %}
+    
+    {% block postloadjs %}
+    {% endblock %}
+    
     <script src="{% static 'js/nav-bar.js' %}"></script>
     <script src="{% static 'js/base.js' %}"></script>
-
 </body>
 
 </html>
