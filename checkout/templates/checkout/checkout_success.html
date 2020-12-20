@@ -160,12 +160,21 @@
         </div>
         <div class="row">
 			<div class="col-12 text-left">
-				<a href="{% url 'home' %}?category=new_arrivals,deals,clearance" class="btn btn-primary text-white products-section-btn rounded-0 my-2">
-					<span class="icon mr-2">
-						<i class="fas fa-gifts"></i>
-					</span>
-					<span class="text-capitalize">Return to home page</span>
-				</a>
+                {% if from_profile %}
+                    <a href="{% url 'profile' %}" class="btn btn-primary text-white products-section-btn rounded-0 my-2">
+                        <span class="icon mr-2">
+                            <i class="fas fa-angle-left"></i>
+                        </span>
+                        <span class="text-capitalize">Back to Profile</span>
+                    </a>
+                {% else %}
+                    <a href="{% url 'home' %}" class="btn btn-primary text-white products-section-btn rounded-0 my-2">
+                        <span class="icon mr-2">
+                            <i class="fas fa-gifts"></i>
+                        </span>
+                        <span class="text-capitalize">Return to home page</span>
+                    </a>
+                {% endif %}
 			</div>
 		</div>
     </div>

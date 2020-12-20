@@ -17,12 +17,63 @@
 		</div>
     </div>
     <section class="form-checkout-section">
-    <div class="container pt-5 pb-5">
+    <div class="container-fluid pt-5 pb-5">
         <div class="row">
             <div class="col-12 text-left">
                 <hr>
                 <h2 class="logo-font mb-4 text-black">My profile</h2>
                 <hr>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-lg-6">
+                <p class="text-muted">Default Delivery Information</p>
+                <form class="mt-3" action="{% url 'profile' %}" method="POST" id="profile-update-form">
+                    {% csrf_token %}
+                    {{ form|crispy }}
+                    <button class="btn btn-primary text-capitalized float-right">Update Information</button>
+                </form>
+            </div>
+            <div class="col-12 col-lg-6">
+                <p class="text-muted">Order History</p>
+                <div class="order-history table-responsive">
+                    <table class="table table-sm table-borderless">
+                        <thead>
+                            <tr>
+                                <th>Order Num.</th>
+                                <th>Date</th>
+                                <th>Items</th>
+                                <th>Order Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for order in orders %}
+                                <tr>
+                                    <td>
+                                        <a href="{% url 'order_history' order.order_number %}" titel="{{ order.order_number }}">
+                                            {{ order.order_number|truncatechars:6 }}
+                                        </a>
+                                    </td>
+                                    <td class="small">{{ order.date }}</td>
+                                    <td>
+                                        <ul class="list-unstyled">
+                                            {% for item in order.lineitems.all %}
+                                                <li class="small">
+                                                    {% if item.product %}
+                                                        Category: {{item.product.category}}, {{item.product.name}}
+                                                    {% else %}
+                                                        Category: {{item.subscription.category}}, {{item.subscription.name}}
+                                                    {% endif %}
+                                                </li>
+                                            {% endfor %}
+                                        </ul>
+                                    </td>
+                                    <td>{{ order.order_total }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
