@@ -30,10 +30,12 @@
 
 {% block content %}
 <div class="container hero-fmore--position">
-		<div class="row">
-			<div class="col-12 d-none d-lg-block fade-in">
+        <div class="row">
+            <div class="col-12 d-none d-lg-block fade-in">
 				<h2 class="mb-4">Welcome to Max Fitness.</h2>
 			</div>
+        </div>
+        <div class="row">
 			<div class="col-12 col-lg-4">
 				<div class="row">
 					<div class="col-12 icon-font-size fade-in">
@@ -535,7 +537,7 @@
 						<p>We make your training plans available online  for you to use on any device. Easily track your progress and subscription plans. All in one place.</p>
 					</div>
 				</div>
-			</div>
+            </div>
 		</div>
 	</div>
     <section class="why-section">
@@ -626,16 +628,20 @@
                 </div>
             </div>
             <div class="row mt-5">
-                <div class="col-12 col-sm-6 p-0">
-                    <img src="{{ MEDIA_URL }}/fitness_advanced_workout_plan.jpg" alt="" class="img-fluid position-relative w-lg-50 w-lx-100 img-products">
-                    <h3 class="position-absolute product-category-h3 pl-4 pr-2">Training plans tailored just for you.</h3>
-                    <a href="#" class=" position-absolute btn btn-primary products-section-btn">See More</a>
+                <div class="col-12 col-lg-6 p-0">
+                    <img src="{{ MEDIA_URL }}/training_plans.jpg" alt="" class="img-fluid position-relative w-lg-50 w-lx-100 img-products">
+                    <div class="overlay-text">
+                        <h3 class="product-category-h3 pl-4 pr-2">Training plans tailored just for you.</h3>
+                        <a href="{% url 'products' %}?category=training_plan" class="btn btn-primary products-section-btn ml-4">See More</a>
+                    </div>
                     <div class="color-overlay position-absolute h-100 w-100"></div>
                 </div>
-                <div class="col-12 col-sm-6 p-0">
-                    <img src="{{ MEDIA_URL }}/weight_cutting_diet.jpg " alt="" class="img-fluid position-relative w-lg-50 img-products">
-                    <h3 class="position-absolute product-category-h3 pl-4 pr-2">Diet plans tailored just for you.</h3>
-                    <a href="#" class=" position-absolute btn btn-primary products-section-btn">See More</a>
+                <div class="col-12 col-lg-6 p-0">
+                    <img src="{{ MEDIA_URL }}/diet_plans.jpg " alt="" class="img-fluid position-relative w-lg-50 img-products">
+                    <div class="overlay-text">
+                        <h3 class="product-category-h3 pl-4 pr-2">Diet plans tailored just for you.</h3>
+                        <a href="{% url 'products' %}?category=nutrition_and_diet" class="btn btn-primary products-section-btn ml-4">See More</a>
+                    </div>                
                     <div class="color-overlay position-absolute h-100 w-100"></div>
                 </div>
             </div>
@@ -720,7 +726,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row flex-column p-5">
+            <div class="row flex-column pt-5 pb-5 p-lg-5">
                 <div id="carouselControls" class="carousel slide mx-auto" data-ride="carousel">
 					<ol class="carousel-indicators">
 						<li data-target="#carouselControls" data-slide-to="0" class="active"></li>
@@ -731,9 +737,9 @@
 						<div class="carousel-item active story1">
 							<p class="text-white mx-auto text-center">Thanks to Max Fitness training plan I was able to fix my posture and improve muscle tone. Finaly I feel healty and fit!</p>
                             <div class="d-flex flex-row justify-content-center">
-                                <div class="mt-5 story-one-img-container">
+                                <div class="mt-1 story-one-img-container">
                                 </div>
-                                <div class="mt-5 story-name">
+                                <div class="mt-1 story-name">
                                     <p class="ml-3 text-white">Sarah W.</p>
                                     <p class="ml-3 text-orange">Health Care Worker</p>
                                 </div>
@@ -742,9 +748,9 @@
                         <div class="carousel-item story2">
 							<p class="text-white mx-auto text-center">Max Fitness has helped me build my body physique! I have never been more happier with the results.</p>
                             <div class="d-flex flex-row justify-content-center">
-                                <div class="mt-5 story-two-img-container">
+                                <div class="mt-1 story-two-img-container">
                                 </div>
-                                <div class="mt-5 story-name">
+                                <div class="mt-1 story-name">
                                     <p class="ml-3 text-white">John B.</p>
                                     <p class="ml-3 text-orange">Construction Worker</p>
                                 </div>
@@ -753,9 +759,9 @@
                         <div class="carousel-item story3">
 							<p class="text-white mx-auto text-center">One of the best fitness enviroments I have witness so far. Everyone is friendly and professional.</p>
                             <div class="d-flex flex-row justify-content-center">
-                                <div class="mt-5 story-three-img-container">
+                                <div class="mt-1 story-three-img-container">
                                 </div>
-                                <div class="mt-5 story-name">
+                                <div class="mt-1 story-name">
                                     <p class="ml-3 text-white">Max G.</p>
                                     <p class="ml-3 text-orange">Professional Athlete</p>
                                 </div>

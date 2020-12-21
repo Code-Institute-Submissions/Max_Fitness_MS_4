@@ -395,6 +395,21 @@ html {
             box-shadow: 0.1rem 0.1rem 1rem rgba(0, 0, 0, 0.4);
 }
 
+@media (min-width: 992px){
+    .hero-fmore--position{
+        max-width: 40rem;
+        overflow: hidden;
+    }
+}
+
+@media (min-width: 1200px){
+    .hero-fmore--position{
+        max-width: 55rem;
+        overflow: hidden;
+    }
+}
+
+
 .icon-about {
     fill: #FF5085;
     height: 3rem;
@@ -517,6 +532,12 @@ input:checked + .slider:before {
     z-index: -1;
 }
 
+.overlay-text{
+    position: relative;
+    height: 0;
+    bottom: 9rem;
+}
+
 .img-products {
     z-index: -2;
     background-color: #15314A;
@@ -525,8 +546,7 @@ input:checked + .slider:before {
 .product-category-h3 {
     z-index: 1;
     color: #ffffff;
-    top: 5rem;
-    font-size: 1.8rem;
+    font-size: 1.3rem;
 }
 
 
@@ -543,12 +563,16 @@ input:checked + .slider:before {
     .product-category-h3 {
          z-index: 1;
         color: #ffffff;
-        top: 9rem;
-        font-size: 2.3rem;
+        font-size: 2rem;
+    }
+
+    .overlay-text{
+    position: relative;
+    height: 0;
+    bottom: 14rem;
     }
 
     .products-section-btn {
-    top: 18rem;
     left: 1.3rem;
     background: #FF5085;
     padding: .2rem 1rem;
@@ -561,12 +585,10 @@ input:checked + .slider:before {
     .product-category-h3 {
     z-index: 1;
     color: #ffffff;
-    top: 2rem;
     font-size: 1.8rem;
 }
 
 .products-section-btn {
-    top: 11rem;
     left: 1.3rem;
     background: #FF5085;
     padding: .2rem 1rem;
@@ -580,8 +602,13 @@ input:checked + .slider:before {
  .product-category-h3 {
     z-index: 1;
     color: #ffffff;
-    top: 5rem;
     font-size: 1.8rem;
+}
+
+.overlay-text{
+    position: relative;
+    height: 0;
+    bottom: 10rem;
 }
 
 }
@@ -591,12 +618,10 @@ input:checked + .slider:before {
     .product-category-h3 {
     z-index: 1;
     color: #ffffff;
-    top: 8rem;
     font-size: 1.8rem;
 }
 
 .products-section-btn {
-    top: 14rem;
     left: 1.3rem;
     background: #FF5085;
     padding: .2rem 1rem;
