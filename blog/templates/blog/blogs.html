@@ -1,6 +1,10 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'blog/css/blogs.css' %}">    
+{% endblock %}
+
 {% block page_hero %}
     <div class="callout-container-img-bg">
         <div class="container">
@@ -14,5 +18,25 @@
 {% endblock %}
 
 {% block content %}
-
+<div class="blog-posts-section">
+    <div class="container pt-5 pb-5">
+        <div class="row blog-post">
+            <div class="col-12 col-lg-5 p-0 blog-post-img">
+                <img src="{{ MEDIA_URL }}blog_post_example1.jpg" alt="">
+            </div>
+            <div class="col-12 col-lg-7">
+                <div class="blog-post-date">
+                    <span>Sunday</span>
+                    <span>October 27 2020</span>
+                </div>
+                <h5 class="blog-post-title">Why Crossfit is good for you.</h5>
+                <p class="blog-post-text">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci odio repellat iusto corrupti perferendis fugit dolorem recusandae aut, expedita accusantium voluptatem aliquam quaerat consectetur tempora debitis mollitia magni eligendi pariatur!
+                </p>
+                <a href="#" class="btn btn-primary blog-post-btn">Read More</a>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
+
