@@ -10,7 +10,14 @@
         <div class="container">
 			<div class="row">
 				<div class="col-12 hero-background-color text-center">
-					<h1 class="text-white">Bellow you will find our latest blog posts</h1>
+                    <h1 class="text-white mb-3">Search for specific blog</h1>
+                    <p class="lead text-white mt-1 mb-4 d-none d-lg-block">Checkout our latest blog posts bellow</p>
+                    <form class="form" method="GET" action="/blog/">
+                        <div class="form-row flex-column flex-lg-row">
+                            <input class="product-search-input mx-auto mx-lg-0 ml-lg-auto" type="text" name="q" placeholder="Search our site">
+                            <button class="btn btn-primary hero-btn mx-auto mt-3 mr-lg-auto ml-lg-3 my-lg-auto" type="submit">Search <i class="fas fa-search"></i></button>
+                        </div>
+                    </form>
 				</div>
 			</div>
 		</div>
