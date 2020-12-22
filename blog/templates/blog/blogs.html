@@ -20,23 +20,57 @@
 {% block content %}
 <div class="blog-posts-section">
     <div class="container pt-5 pb-5">
+        {% if user.is_superuser %}
+        <div class="row">
+            <div class="col-12 text-center pb-5">
+                <h4>Create new blog post</h4>
+                <a href="#" class="btn btn-primary mt-3 blog-post-btn">Create Post</a>
+            </div>
+        </div>
+        {% endif %}
+        <div class="row">
+            <div class="col-12 col-md-6 my-auto order-md-last d-flex justify-content-center justify-content-md-end">
+                    <div class="sort-select-wrapper w-50">
+                        <select id="sort-selector" class="custom-select custom-select-sm rounded-0 border border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %}">
+                            <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
+                            <option value="date_desc" {% if current_sorting == 'date_desc' %}selected{% endif %}>Newest to Oldest</option>
+                            <option value="date_asc" {% if current_sorting == 'date_asc' %}selected{% endif %}>Old to Newest</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 order-md-first">
+                    <p class="text-muted mt-3 text-center text-md-left">
+                        {% if search_term or current_categories or current_sorting != 'None_None' %}
+                            <span class="small"><a href="{% url 'blog' %}">Blog Home</a> | </span>
+                        {% endif %}
+                        {{ blogPosts|length }} Blog posts {% if search_term %} found for <strong>"{{ search_term }}"</strong>{% endif %}
+                    </p>
+                </div>
+        </div>
+        {% for post in blogPosts %}
         <div class="row blog-post">
             <div class="col-12 col-lg-5 p-0 blog-post-img">
-                <img src="{{ MEDIA_URL }}blog_post_example1.jpg" alt="">
+                <img src="{{ post.image.url }}" alt="">
             </div>
             <div class="col-12 col-lg-7">
                 <div class="blog-post-date">
-                    <span>Sunday</span>
-                    <span>October 27 2020</span>
+                    <span>{{ post.date_added }}</span>
                 </div>
-                <h5 class="blog-post-title">Why Crossfit is good for you.</h5>
+                <h5 class="blog-post-title">{{ post.title }}</h5>
                 <p class="blog-post-text">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci odio repellat iusto corrupti perferendis fugit dolorem recusandae aut, expedita accusantium voluptatem aliquam quaerat consectetur tempora debitis mollitia magni eligendi pariatur!
+                    {{ post.intro }}
                 </p>
                 <a href="#" class="btn btn-primary blog-post-btn">Read More</a>
+                <span class="comment-count float-right text-pink">{{ post.comments.all|length }} <i class="far fa-comment-dots"></i></span>
             </div>
         </div>
+        {% endfor %}
     </div>
 </div>
 {% endblock %}
 
+
+{% block postloadjs %}
+    {{ block.super }}
+    <script src="{% static 'js/selectboxSorting.js' %}"></script>
+{% endblock %}
