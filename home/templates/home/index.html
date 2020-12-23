@@ -1,6 +1,10 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'blog/css/blogs.css' %}">    
+{% endblock %}
+
 {% block page_hero %}
     <div class="callout-container-img-bg">
         <div class="container-fluid">
@@ -622,7 +626,7 @@
                     <p class="section-tag text-uppercase text-gray font-weight-bold mt-5">training</p>
                      <div class="d-flex">
                         <h2 class="h2--border">Max Fitness Offers Training and Diet Plans</h2>
-                        <a href="" class="ml-auto
+                        <a href="{% url 'products' %}" class="ml-auto
                          text-uppercase viewall-link my-auto d-none d-lg-block">View all</a>
                     </div>
                 </div>
@@ -654,64 +658,35 @@
                     <p class="section-tag text-uppercase text-gray font-weight-bold mt-5">blog</p>
                     <div class="d-flex">
                         <h2 class="h2--border">Latest Articles</h2>
-                        <a href="" class="ml-auto
+                        <a href="{% url 'blog' %}" class="ml-auto
                          text-uppercase viewall-link my-auto d-none d-lg-block">View all</a>
                     </div>
                 </div>
             </div>
         </div>
         <div class="container p-sm-5 p-lg-0">
-            <div class="row mb-4 shadow">
-                <div class="col-12 col-lg-5 p-0">
-                    <img src="{{ MEDIA_URL}}weight_cutting_diet.jpg" alt="" class="img-fluid">
+            {% for post in blogPost %}
+            <div class="row mt-5 mt-lg-0 mb-3 blog-post">
+                <div class="col-12 col-lg-5 p-0 blog-post-img">
+                {% if post.image %}
+                    <img src="{{ post.image.url }}" alt="">
+                {% else %}
+                    <img src="{{ MEDIA_URL }}noimage.png" alt="">
+                {% endif %}
                 </div>
-                <div class="col-12 col-lg-7 d-flex flex-column">
-                    <a href="" class="blog-section-tag mr-auto text-white mt-2 mt-sm-3"><i class="fas fa-tag"></i> Tag</a>
-                    <h3 class="mt-2 mt-sm-3 mt-lg-4">Blog Name</h3>
-                    <p class="my-auto">Short Description
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Saepe distinctio labore, ab possimus voluptatibus quis et corporis dolorem mollitia assumenda nesciunt accusantium amet sapiente quia illum architecto temporibus. Libero, fuga?<a href="" class="text-pink">Read More</a>
-                    </p>
-
-                    <div class="mt-auto d-flex d-row">
-                        <p class="mb-1">User Name</p>
-                        <p class="mb-1 ml-auto">Date of Publish</p>
+                <div class="col-12 col-lg-7">
+                    <div class="blog-post-date">
+                        <span>{{ post.date_added }}</span>
                     </div>
+                    <h5 class="blog-post-title">{{ post.title }}</h5>
+                    <p class="blog-post-text">
+                    {{ post.intro }}
+                    </p>
+                    <a href="{% url 'blog_post' post.id %}" class="btn btn-primary blog-post-btn">Read More</a>
+                    <span class="comment-count float-right text-pink">{{ post.comments.all|length }} <i class="far fa-comment-dots"></i></span>
                 </div>
             </div>
-            <div class="row mb-4 shadow">
-                <div class="col-12 col-lg-5 p-0">
-                    <img src="{{ MEDIA_URL}}weight_cutting_diet.jpg" alt="" class="img-fluid">
-                </div>
-                <div class="col-12 col-lg-7 d-flex flex-column">
-                    <a href="" class="blog-section-tag mr-auto text-white mt-2 mt-sm-3"><i class="fas fa-tag"></i> Tag</a>
-                    <h3 class="mt-2 mt-sm-3 mt-lg-4">Blog Name</h3>
-                    <p class="my-auto">Short Description
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Saepe distinctio labore, ab possimus voluptatibus quis et corporis dolorem mollitia assumenda nesciunt accusantium amet sapiente quia illum architecto temporibus. Libero, fuga?<a href="" class="text-pink">Read More</a>
-                    </p>
-
-                    <div class="mt-auto d-flex d-row">
-                        <p class="mb-1">User Name</p>
-                        <p class="mb-1 ml-auto">Date of Publish</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row mb-4 shadow">
-                <div class="col-12 col-lg-5 p-0">
-                    <img src="{{ MEDIA_URL}}weight_cutting_diet.jpg" alt="" class="img-fluid">
-                </div>
-                <div class="col-12 col-lg-7 d-flex flex-column">
-                    <a href="" class="blog-section-tag mr-auto text-white mt-2 mt-sm-3"><i class="fas fa-tag"></i> Tag</a>
-                    <h3 class="mt-2 mt-sm-3 mt-lg-4">Blog Name</h3>
-                    <p class="my-auto">Short Description
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Saepe distinctio labore, ab possimus voluptatibus quis et corporis dolorem mollitia assumenda nesciunt accusantium amet sapiente quia illum architecto temporibus. Libero, fuga?<a href="" class="text-pink">Read More</a>
-                    </p>
-
-                    <div class="mt-auto d-flex d-row">
-                        <p class="mb-1">User Name</p>
-                        <p class="mb-1 ml-auto">Date of Publish</p>
-                    </div>
-                </div>
-            </div>
+            {% endfor %}
         </div>
     </section>
     <div class="success-stories d-flex bg-charcoal-light">
