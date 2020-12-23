@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load crispy_forms_tags %}
 
 {% block extra_css %}
     <link rel="stylesheet" href="{% static 'blog/css/blogs.css' %}">    
@@ -25,16 +26,40 @@
 {% endblock %}
 
 {% block content %}
+<div class="container pt-5">
+    {% if user.is_superuser %}
+    <div class="row">
+        <div class="col-12 text-center mb-3">
+            <h4>Create new blog post</h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 pb-5">
+            <form>
+                {% csrf_token %}
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="{{ blog_form.title.auto_id }}" class="small px-2">Title</label>
+                        {{ blog_form.title|as_crispy_field }}
+                        <label for="{{ blog_form.intro.auto_id }}" class="small px-2">Intro</label>
+                        {{ blog_form.intro|as_crispy_field }}
+                        <label for="{{ blog_form.image_url.auto_id }}" class="small px-2">Image Url</label>
+                        {{ blog_form.image_url|as_crispy_field }}
+                        <label for="{{ blog_form.image.auto_id }}" class="small px-2">Image</label>
+                        {{ blog_form.image|as_crispy_field }}
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="{{ blog_form.body.auto_id }}" class="small px-2">Body</label>
+                        {{ blog_form.body|as_crispy_field }}
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    {% endif %}
+</div>
 <div class="blog-posts-section">
     <div class="container pt-5 pb-5">
-        {% if user.is_superuser %}
-        <div class="row">
-            <div class="col-12 text-center pb-5">
-                <h4>Create new blog post</h4>
-                <a href="#" class="btn btn-primary mt-3 blog-post-btn">Create Post</a>
-            </div>
-        </div>
-        {% endif %}
         <div class="row">
             <div class="col-12 col-md-6 my-auto order-md-last d-flex justify-content-center justify-content-md-end">
                     <div class="sort-select-wrapper w-50">

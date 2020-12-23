@@ -1,7 +1,9 @@
 from django.shortcuts import render, redirect, reverse
 from django.contrib import messages
 from django.db.models import Q
+
 from .models import BlogPost
+from .forms import BlogPostForm
 # Create your views here.
 
 
@@ -9,6 +11,9 @@ def render_blog(request):
     """
     Renders blog page for the user
     """
+    form = None
+    if request.user.is_superuser:
+        form = BlogPostForm()
     allPosts = BlogPost.objects.all()
     sort = None
     direction = None
@@ -47,5 +52,6 @@ def render_blog(request):
         'search_term': query,
         'blogPosts': allPosts,
         'current_sorting': current_sorting,
+        'blog_form': form,
     }
     return render(request, template, context)
