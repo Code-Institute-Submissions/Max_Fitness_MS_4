@@ -114,3 +114,13 @@ def update_post(request, item_id):
         messages.error(request, f'Failed to update {title} \
             Try again later.')
         return redirect(reverse('blog_post', args=(item_id,)))
+
+@require_POST
+def delete_post(request, item_id):
+    blogPost = BlogPost.objects.get(pk=item_id)
+    if request.user.is_superuser:
+        blogPost.delete()
+        messages.success(request, 'Blog post succesfully deleted.')
+        return redirect(reverse('blog'))
+    else:
+        return redirect(reverse('blog'))

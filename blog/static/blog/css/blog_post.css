@@ -35,3 +35,8 @@
     border-radius: 0;
     border-color: #FF5085;
 }
+
+.delete-btn {
+    padding: .2rem 0.5rem;
+    border-radius: 0;
+}
