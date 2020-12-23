@@ -1,8 +1,9 @@
-from django.shortcuts import render, redirect, reverse
+from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
 
-from .models import BlogPost
+from django.views.decorators.http import require_POST
+from .models import BlogPost, BlogComments
 from .forms import BlogPostForm
 # Create your views here.
 
@@ -65,3 +66,51 @@ def render_blog(request):
         'blog_form': form,
     }
     return render(request, template, context)
+
+
+def render_specific_post(request, item_id):
+    """
+    Renders specific blog post
+    """
+    blogPost = get_object_or_404(BlogPost, pk=item_id)
+    form = None
+    if request.user.is_superuser:
+        form = BlogPostForm(initial={
+            'title': blogPost.title,
+            'intro': blogPost.intro,
+            'body': blogPost.body,
+            'date_added': blogPost.date_added,
+            'image_url': blogPost.image_url,
+            'image': blogPost.image,
+        })
+
+    comments = BlogComments.objects.all()
+
+    postcomments = comments.filter(blog_post__in=item_id)
+
+    template = 'blog/blog_post.html'
+    context = {
+        "post": blogPost,
+        "comments": postcomments,
+        "blog_form": form,
+    }
+
+    return render(request, template, context)
+
+
+@require_POST
+def update_post(request, item_id):
+    blogPost = get_object_or_404(BlogPost, pk=item_id)
+
+    form = BlogPostForm(request.POST, request.FILES, instance=blogPost)
+    if form.is_valid():
+        form.save()
+        title = request.POST['title']
+        messages.success(request, f'Blog post {title} \
+        has been updated successfully')
+        return redirect(reverse('blog_post', args=(item_id,)))
+
+    else:
+        messages.error(request, f'Failed to update {title} \
+            Try again later.')
+        return redirect(reverse('blog_post', args=(item_id,)))

@@ -98,7 +98,7 @@
                 <p class="blog-post-text">
                     {{ post.intro }}
                 </p>
-                <a href="#" class="btn btn-primary blog-post-btn">Read More</a>
+                <a href="{% url 'blog_post' post.id %}" class="btn btn-primary blog-post-btn">Read More</a>
                 <span class="comment-count float-right text-pink">{{ post.comments.all|length }} <i class="far fa-comment-dots"></i></span>
             </div>
         </div>
