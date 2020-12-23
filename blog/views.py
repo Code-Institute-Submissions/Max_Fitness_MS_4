@@ -9,7 +9,8 @@ from .forms import BlogPostForm
 
 def render_blog(request):
     """
-    Renders blog page for the user
+    Renders blog page and handles POST request
+    to create blog post
     """
     form = None
     if request.user.is_superuser:
@@ -20,8 +21,17 @@ def render_blog(request):
     current_sorting = None
     query = None
 
-    if request.GET:
+    if request.method == 'POST':
+        form = BlogPostForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully added product!')
+            return redirect(reverse('blog'))
+        else:
+            messages.error(request, 'Failed to add product. \
+                 Please ensure the form is valid!')
 
+    if request.GET:
         # Sorting logic for blog posts
         # sorts blog posts by date
         if 'sort' in request.GET:

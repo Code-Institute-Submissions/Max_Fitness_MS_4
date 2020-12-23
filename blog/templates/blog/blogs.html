@@ -31,11 +31,12 @@
     <div class="row">
         <div class="col-12 text-center mb-3">
             <h4>Create new blog post</h4>
+            <button class="btn btn-primary mt-3 blog-post-btn" type="button" data-toggle="collapse" data-target="#collapsed-form" aria-expanded="false" aria-controls="collapseExample">Create Post</button>
         </div>
     </div>
-    <div class="row">
+    <div class="row collapse" id="collapsed-form">
         <div class="col-12 pb-5">
-            <form>
+            <form method="POST" action="{% url 'blog' %}" enctype="multipart/form-data">
                 {% csrf_token %}
                 <div class="form-row">
                     <div class="form-group col-md-6">
@@ -51,6 +52,7 @@
                     <div class="form-group col-md-6">
                         <label for="{{ blog_form.body.auto_id }}" class="small px-2">Body</label>
                         {{ blog_form.body|as_crispy_field }}
+                        <button type="submit" class="btn btn-primary mt-3 float-right blog-post-btn">Publish</button>
                     </div>
                 </div>
             </form>
@@ -82,7 +84,11 @@
         {% for post in blogPosts %}
         <div class="row blog-post">
             <div class="col-12 col-lg-5 p-0 blog-post-img">
-                <img src="{{ post.image.url }}" alt="">
+                {% if post.image %}
+                    <img src="{{ post.image.url }}" alt="">
+                {% else %}
+                    <img src="{{ MEDIA_URL }}noimage.png" alt="">
+                {% endif %}
             </div>
             <div class="col-12 col-lg-7">
                 <div class="blog-post-date">
