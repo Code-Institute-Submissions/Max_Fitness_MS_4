@@ -15,6 +15,7 @@ Some of the main functionalities of this website are:
 ![Site Logo](/readme_resources/img_readme/logo.jpg)
 # Table of Contents
 - [Max Fitnesss](#max-fitnesss)
+- [Table of Contents](#table-of-contents)
   * [UX](#ux)
     + [Viewing and Navigation](#viewing-and-navigation)
     + [Registration and User Accounts](#registration-and-user-accounts)
@@ -22,8 +23,10 @@ Some of the main functionalities of this website are:
     + [Purchase and Checkout](#purchase-and-checkout)
     + [Admin and Store Management](#admin-and-store-management)
     + [Strategy plane:](#strategy-plane-)
+    + [Scope](#scope)
       - [As a Developer](#as-a-developer)
   * [Features](#features)
+- [Features still to implement](#features-still-to-implement)
     + [Testing Deployment](#testing-deployment)
   * [Deployment](#deployment)
   * [Information Architecture](#information-architecture)
@@ -81,6 +84,18 @@ Some of the main functionalities of this website are:
 
  ### Strategy plane:
 
+The idea of the project is to set up an e-commerce store which is subscription drive00n. It is a place that users can go and purchases items, subscription memberships, or interact with the community through commenting on blog posts.
+
+ ### Scope
+
+I had to read Stripe and Django documentation to find out what type of functionality should I implement, and how. To better understand the fitness aspect of this application. I did a quick interview with a couple of friends who run fitness facilities. Based on the conversation I had with them I decided to priorities these key features:
+
+1. Design should be kept simple, clear, and easy to understand. It should not be overcrowded with unnecessary information as this can confuse the first-time user.
+2. Landing page should be interesting and eye-catching.
+3. Navigation should be clear and easy to use.
+6. A blog where store owners and staff can post interesting material about fitness that users can read and comment on.
+7. A contact section with all of the contact information in case the user wants to contact the store.
+
  #### As a Developer
 
 - [x] I aim to build a Django project backend by a relational database to create a website that allows users to store and manipulate data records about a particular domain. 
@@ -105,6 +120,19 @@ Some of the main functionalities of this website are:
 - [x] Checkout app used to handle the purchase of bag items. Uses Stripe for secure card payments.
 - [x] Blog app used by superusers to post blogs, and by normal users to post comments on blogs.
 - [x] Membership app used to display offers of different subscription models.
+
+# Features still to implement
+
+- [ ] Contact Page (allow the user to contact the site owner).
+- [ ] Personalized Image for each user and their UserProfile.
+- [ ] Delete User Account.
+- [ ] Event Calendar.
+- [ ] Email Notifications about discounts and future events.
+- [ ] Chat - Allow user members to chat with store staff.
+- [ ] Progress tracker (graphs, BMI calculator, Calories calculator).
+- [ ] Stripe subscription objects and customer objects implementation.
+
+Time for the project completion was limited, hence some of the intended features have yet to be implemented. The main reason for this is the limited time and extensive documentation (Django, and Stripe). Now I know to implement everything I have firstly intended but time is up so in future versions after my project is graded I will continue the development.
 
 ### Testing Deployment
 - All of the code written was tested and re-tested.
@@ -223,7 +251,7 @@ Using this IDE I was able to make my commits and push all of my code to the [Git
 
 ## Version Control (git)
 
-The project uses the Git tool to capture changes made in each version of the project build. Below you will find some relevant notes on specific versions that I as a developer find important noting.
+The project uses the Git tool to capture changes made in each version of the project build.
 
 ## Technologies Used
 
