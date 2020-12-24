@@ -2,124 +2,127 @@
 {% load static %}
 
 {% block page_hero %}
-    <div class="callout-container-img-bg">
-        <div class="container">
-            <div class="col-12 text-center">
-                {% if not bag_items %}
-                    <h1 class="mb-5 text-white">Your bag is empty.</h1>
-                    <a href="{% url 'products' %}" class="btn btn-primary hero-btn text-white rounded-0 btn-lg">
-                        <span class="icon">
-                            <i class="fas fa-chevron-left"></i>
-                        </span>
-                        <span class="text-uppercase">Keep Shopping</span>
-                    </a>
-                {% else %}
-                    <h1 class="mb-5 text-white">Your bag items are displayed bellow.</h1>
-                {% endif %}
-            </div>
-        </div>
-    </div>
+<div class="callout-container-img-bg">
     <div class="container">
-        <div class="row">
-            <div class="col-12 pt-5">
-                <hr>
-                <h2>Shopping Bag</h2>
-                <hr>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12 pb-5 hero-background-color text-center">
-                {% if bag_items %}
-                    <div class="table-responsive">
-                        <table class="table table-sm table-borderless">
-                            <thead class="text-black">
-                                <tr>
-                                    <th scope="col">Product Info</th>
-                                    <th scope="col"></th>
-                                    <th scope="col">Price</th>
-                                    <th scope="col">Subtotal</th>
-                                </tr>
-                            </thead>
-
-                                {% for item in bag_items %}
-                                    {% if item.category != "membership" %}
-                                        <tr>
-                                            <td class="p-3 w-25">
-                                                <img class="img-fluid rounded" src="{{ item.product.image.url }}">
-                                            </td>
-                                            <td class="py-3">
-                                                <p class="my-0"><strong>{{ item.product.name }}</strong></p>
-                                            </td>
-                                            <td class="py-3">
-                                                <p class="my-0">${{ item.product.price }}</p>
-                                            </td>
-                                            <td class="py-3">
-                                                <p class="my-0">${{ item.product.price }}</p>
-                                                <a class="remove-item text-danger" id="remove_{{ item.item_id }}" data-subscription_type="{{ item.subscription.subscriptionType }}"><small>Remove</small></a>
-                                            </td>
-                                        </tr>
-                                    {% else %}
-                                        <tr>
-                                            <td class="p-3 w-25">
-                                                <img class="img-fluid rounded" src="{{ MEDIA_URL }}noimage.png">
-                                            </td>
-                                            <td class="py-3">
-                                                <p class="my-0"><strong>{{ item.subscription.name }}</strong></p>
-                                            </td>
-                                            <td class="py-3">
-                                                <p class="my-0">${{ item.subscription.price }}</p>
-                                                <p class="my-0">type: {{ item.subscription.subscriptionType }}</p>
-                                            </td>
-                                            <td class="py-3 w-25">
-                                                <p class="my-0">${{ item.subscription.price }}</p>
-                                                <a class="remove-item text-danger" id="remove_{{ item.item_id }}" data-subscription_type="{{ item.subscription.subscriptionType }}"><small>Remove</small></a>
-                                            </td>
-                                            
-                                        </tr>
-                                    {% endif %}
-                                {% endfor %}
-                            <tr>
-                                <td colspan="5" class="pt-5 text-right">
-                                    <h6><strong>Bag Total: ${{ total|floatformat:2 }}</strong></h6>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colspan="5" class="text-right">
-                                    <a href="{% url 'products' %}" class="btn btn-primary mt-3 products-section-btn">
-                                        <span class="icon">
-                                            <i class="fas fa-chevron-left"></i>
-                                        </span>
-                                        <span class="text-uppercase">Keep Shopping</span>
-                                    </a>
-                                    <a href="{% url 'checkout' %}" class="btn btn-primary mt-3 products-section-btn">
-                                        <span class="text-uppercase">Secure Checkout</span>
-                                        <span class="icon">
-                                            <i class="fas fa-lock"></i>
-                                        </span>
-                                    </a>
-                                </td>
-                        </tr>
-                        </table>
-                    </div>
-                    {% else %}
-                    <div class="row">
-                        <p class="text-left ml-3 mr-auto">Your bag is empty</p>
-                        <hr>
-                    </div>
-                    <div class="row">
-                        <a href="{% url 'products' %}" class="btn btn-primary mr-auto ml-3 products-section-btn">
-                            <span class="icon">
-                                <i class="fas fa-chevron-left"></i>
-                            </span>
-                            <span class="text-uppercase">Keep Shopping</span>
-                        </a>
-                    </div>
-                {% endif %}       
-            </div>
+        <div class="col-12 text-center">
+            {% if not bag_items %}
+            <h1 class="mb-5 text-white">Your bag is empty.</h1>
+            <a href="{% url 'products' %}" class="btn btn-primary hero-btn text-white rounded-0 btn-lg">
+                <span class="icon">
+                    <i class="fas fa-chevron-left"></i>
+                </span>
+                <span class="text-uppercase">Keep Shopping</span>
+            </a>
+            {% else %}
+            <h1 class="mb-5 text-white">Your bag items are displayed bellow.</h1>
+            {% endif %}
         </div>
     </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-12 pt-5">
+            <hr>
+            <h2>Shopping Bag</h2>
+            <hr>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 pb-5 hero-background-color text-center">
+            {% if bag_items %}
+            <div class="table-responsive">
+                <table class="table table-sm table-borderless">
+                    <thead class="text-black">
+                        <tr>
+                            <th scope="col">Product Info</th>
+                            <th scope="col"></th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Subtotal</th>
+                        </tr>
+                    </thead>
+
+                    {% for item in bag_items %}
+                    {% if item.category != "membership" %}
+                    <tr>
+                        <td class="p-3 w-25">
+                            <img class="img-fluid rounded" src="{{ item.product.image.url }}"
+                                alt="{{ item.product.name }}">
+                        </td>
+                        <td class="py-3">
+                            <p class="my-0"><strong>{{ item.product.name }}</strong></p>
+                        </td>
+                        <td class="py-3">
+                            <p class="my-0">${{ item.product.price }}</p>
+                        </td>
+                        <td class="py-3">
+                            <p class="my-0">${{ item.product.price }}</p>
+                            <a class="remove-item text-danger" id="remove_{{ item.item_id }}"
+                                data-subscription_type="{{ item.subscription.subscriptionType }}"><small>Remove</small></a>
+                        </td>
+                    </tr>
+                    {% else %}
+                    <tr>
+                        <td class="p-3 w-25">
+                            <img class="img-fluid rounded" src="{{ MEDIA_URL }}noimage.png" alt="No image to display">
+                        </td>
+                        <td class="py-3">
+                            <p class="my-0"><strong>{{ item.subscription.name }}</strong></p>
+                        </td>
+                        <td class="py-3">
+                            <p class="my-0">${{ item.subscription.price }}</p>
+                            <p class="my-0">type: {{ item.subscription.subscriptionType }}</p>
+                        </td>
+                        <td class="py-3 w-25">
+                            <p class="my-0">${{ item.subscription.price }}</p>
+                            <a class="remove-item text-danger" id="remove_{{ item.item_id }}"
+                                data-subscription_type="{{ item.subscription.subscriptionType }}"><small>Remove</small></a>
+                        </td>
+
+                    </tr>
+                    {% endif %}
+                    {% endfor %}
+                    <tr>
+                        <td colspan="5" class="pt-5 text-right">
+                            <h6><strong>Bag Total: ${{ total|floatformat:2 }}</strong></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="5" class="text-right">
+                            <a href="{% url 'products' %}" class="btn btn-primary mt-3 products-section-btn">
+                                <span class="icon">
+                                    <i class="fas fa-chevron-left"></i>
+                                </span>
+                                <span class="text-uppercase">Keep Shopping</span>
+                            </a>
+                            <a href="{% url 'checkout' %}" class="btn btn-primary mt-3 products-section-btn">
+                                <span class="text-uppercase">Secure Checkout</span>
+                                <span class="icon">
+                                    <i class="fas fa-lock"></i>
+                                </span>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            {% else %}
+            <div class="row">
+                <p class="text-left ml-3 mr-auto">Your bag is empty</p>
+                <hr>
+            </div>
+            <div class="row">
+                <a href="{% url 'products' %}" class="btn btn-primary mr-auto ml-3 products-section-btn">
+                    <span class="icon">
+                        <i class="fas fa-chevron-left"></i>
+                    </span>
+                    <span class="text-uppercase">Keep Shopping</span>
+                </a>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
 {% endblock %}
 
 {% block postloadjs %}
-    <script src="{% static 'js/bag_app.js' %}"></script>
+<script src="{% static 'js/bag_app.js' %}"></script>
 {% endblock %}
