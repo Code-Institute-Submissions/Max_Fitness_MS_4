@@ -198,6 +198,7 @@ Using this IDE I was able to make my commits and push all of my code to the [Git
 - The data structure of different data models and their relations look like this:
 
 ![Checkout app](/readme_resources/img_readme/Checkout_app.png)
+![Blog app](/readme_resources/img_readme/Blog_model.png)
 
 
 ## Version Control (git)
