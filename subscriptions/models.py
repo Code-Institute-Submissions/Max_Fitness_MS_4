@@ -12,7 +12,7 @@ class SubscriptionType(models.Model):
 
 
 class Membership(models.Model):
-    category = models.ForeignKey('products.Category', null=True, blank=True,
+    category = models.ForeignKey(Category, null=True, blank=True,
                                  on_delete=models.SET_NULL)
     subscriptionType = models.ForeignKey('SubscriptionType', null=True,
                                          blank=True, on_delete=models.SET_NULL)

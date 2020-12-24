@@ -1,4 +1,4 @@
-from django.shortcuts import render, reverse, redirect, get_object_or_404
+from django.shortcuts import render
 from .models import Membership
 # Create your views here.
 
