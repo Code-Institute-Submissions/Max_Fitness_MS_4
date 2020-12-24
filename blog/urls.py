@@ -1,9 +1,10 @@
 from django.urls import path
-from .views import render_blog, render_specific_post, update_post, delete_post
+from . import views
 
 urlpatterns = [
-    path('', render_blog, name='blog'),
-    path('<item_id>', render_specific_post, name='blog_post'),
-    path('update_post/<item_id>', update_post, name='update_post'),
-    path('delete_post/<item_id>', delete_post, name='delete_post')
+    path('', views.render_blog, name='blog'),
+    path('<item_id>', views.render_specific_post, name='blog_post'),
+    path('update_post/<item_id>', views.update_post, name='update_post'),
+    path('delete_post/<item_id>', views.delete_post, name='delete_post'),
+    path('add_comment/<item_id>', views.add_comment, name='add_comment'),
 ]

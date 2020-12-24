@@ -101,6 +101,19 @@
                 <div class="col-12 text-center">
                     <h5 class="text-white">Comment section <i class="far fa-comment-dots"></i></h5>
                 </div>
+                <div class="col-12">
+                    <form method="POST" action="{% url 'add_comment' post.id %}">
+                        {% csrf_token %}
+                        <div class="form-row">
+                            <div class="form-group mb-1 col-12">
+                                {{ comment_form.body|as_crispy_field }}
+                            </div>
+                            <div class="form-group col-12">
+                                <button class="btn btn-danger comment-btn radius-0" type="submit">Comment</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
             {% if comments %}
                 {% for comment in comments %}

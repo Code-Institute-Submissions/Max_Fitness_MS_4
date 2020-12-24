@@ -29,6 +29,12 @@
     background: #0E1D28;
 }
 
+#id_body {
+    height: 7rem;
+    margin-top: 1.3rem;
+    font-size: .8rem;
+}
+
 .blog-post-btn {
     background: #FF5085;
     padding: .2rem 0.5rem;
@@ -39,4 +45,11 @@
 .delete-btn {
     padding: .2rem 0.5rem;
     border-radius: 0;
+}
+
+.comment-btn {
+    padding: .2rem 0.5rem;
+    border-radius: 0;
+    background-color: #0E1D28;
+    border-color: #0E1D28;
 }

@@ -4,7 +4,8 @@ from django.db.models import Q
 
 from django.views.decorators.http import require_POST
 from .models import BlogPost, BlogComments
-from .forms import BlogPostForm
+from .forms import BlogPostForm, BlogCommentsForm
+from profiles.models import UserProfile
 # Create your views here.
 
 
@@ -86,13 +87,14 @@ def render_specific_post(request, item_id):
 
     comments = BlogComments.objects.all()
 
-    postcomments = comments.filter(blog_post__in=item_id)
+    postcomments = comments.filter(blog_post=item_id)
 
     template = 'blog/blog_post.html'
     context = {
         "post": blogPost,
         "comments": postcomments,
         "blog_form": form,
+        "comment_form": BlogCommentsForm,
     }
 
     return render(request, template, context)
@@ -124,3 +126,20 @@ def delete_post(request, item_id):
         return redirect(reverse('blog'))
     else:
         return redirect(reverse('blog'))
+
+
+@require_POST
+def add_comment(request, item_id):
+    post = get_object_or_404(BlogPost, pk=item_id)
+    user = get_object_or_404(UserProfile, user=request.user)
+    form = BlogCommentsForm({
+        'blog_post': post,
+        'user': user,
+        'body': request.POST.get('body'),
+    })
+
+    if form.is_valid:
+        form.save()
+        return redirect(reverse('blog_post', args=(item_id,)))
+    else:
+        return redirect(reverse('blog_post', args=(item_id,)))
