@@ -1,5 +1,6 @@
 from django import forms
-from .models import BlogPost
+from .models import BlogPost, BlogComments
+from profiles.models import UserProfile
 
 
 class BlogPostForm(forms.ModelForm):
@@ -24,3 +25,17 @@ class BlogPostForm(forms.ModelForm):
 
         for field in self.fields:
             self.fields[field].label = False
+
+
+class BlogCommentsForm(forms.ModelForm):
+    body = forms.CharField(label="", widget=forms.Textarea(
+        attrs={
+            'class': 'form-control',
+            'placeholder': 'Comment here !',
+            'rows': 4,
+            'cols': 50
+        }))
+
+    class Meta:
+        model = BlogComments
+        fields = ('body',)

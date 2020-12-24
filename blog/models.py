@@ -1,5 +1,5 @@
 from django.db import models
-from profiles.models import UserProfile
+from django.contrib.auth.models import User
 # Create your models here.
 
 
@@ -19,11 +19,9 @@ class BlogPost(models.Model):
 
 
 class BlogComments(models.Model):
-    blog_post = models.ForeignKey(BlogPost, null=False, blank=False,
-                                  on_delete=models.CASCADE,
+    blog_post = models.ForeignKey(BlogPost, on_delete=models.CASCADE,
                                   related_name='comments')
-    user = models.ForeignKey(UserProfile, null=False, blank=False,
-                             on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE,)
     body = models.TextField(null=False, blank=False)
     date_added = models.DateTimeField(auto_now_add=True)
 
@@ -31,4 +29,4 @@ class BlogComments(models.Model):
         ordering = ['-date_added']
 
     def __str__(self):
-        return self.user.user.username
+        return self.user.username

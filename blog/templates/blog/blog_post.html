@@ -22,8 +22,8 @@
     {% if user.is_superuser %}
     <div class="row">
         <div class="col-12 text-center mb-3">
-            <h4>Create new blog post</h4>
-            <button class="btn btn-primary mt-3 blog-post-btn" type="button" data-toggle="collapse" data-target="#collapsed-form" aria-expanded="false" aria-controls="collapseExample">Create Post</button>
+            <h4>Edit or delete post</h4>
+            <button class="btn btn-primary mt-3 blog-post-btn" type="button" data-toggle="collapse" data-target="#collapsed-form" aria-expanded="false" aria-controls="collapseExample">Edit Post</button>
             <button class="btn btn-danger delete-btn mt-3 radius-0" type="button" data-toggle="collapse" data-target="#collapsed-delete-form" aria-expanded="false">Delete Post</button>
         </div>
     </div>
@@ -119,7 +119,7 @@
                 {% for comment in comments %}
                 <div class="row mt-4 comment-card">
                     <div class="col-12">
-                        <p class="small mb-0 mt-3 text-white text-capitalize">{{ comment.user.user.username }}</p>
+                        <p class="small mb-0 mt-3 text-white text-capitalize">{{ comment.user.username }}</p>
                         <hr class="mb-0 bg-white">
                     </div>
                     <div class="col-12">

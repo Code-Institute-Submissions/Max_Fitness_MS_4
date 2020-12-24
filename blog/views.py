@@ -130,16 +130,12 @@ def delete_post(request, item_id):
 
 @require_POST
 def add_comment(request, item_id):
-    post = get_object_or_404(BlogPost, pk=item_id)
-    user = get_object_or_404(UserProfile, user=request.user)
-    form = BlogCommentsForm({
-        'blog_post': post,
-        'user': user,
-        'body': request.POST.get('body'),
-    })
-
-    if form.is_valid:
-        form.save()
+    commentForm = BlogCommentsForm(request.POST or None)
+    if commentForm.is_valid():
+        body = request.POST.get('body')
+        post = get_object_or_404(BlogPost, pk=item_id)
+        comment = BlogComments.objects.create(blog_post=post, user=request.user, body=body)
+        comment.save()
         return redirect(reverse('blog_post', args=(item_id,)))
     else:
         return redirect(reverse('blog_post', args=(item_id,)))
