@@ -6,13 +6,15 @@
 .blog-post-img img {
     height: 100%;
     width: 100%;
-    object-fit: cover;
+    -o-object-fit: cover;
+       object-fit: cover;
     border-radius: 0.8rem;
 }
 
 .post-card {
     background-color: #ffffff;
-    box-shadow: 0 1.4rem 8rem rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: 0 1.4rem 8rem rgba(0, 0, 0, 0.2);
+            box-shadow: 0 1.4rem 8rem rgba(0, 0, 0, 0.2);
 }
 
 .comment-section {
