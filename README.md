@@ -1,8 +1,16 @@
 # Max Fitnesss
 
-Max Fitness is a fitness subscription application, an e-commerce website. \
+Max Fitness is a fitness subscription application, and an e-commerce website. \
 It is an active community built around a product, based on subscription and individual payment models.\
 Within the extent of offers such as nutrition and exercise plans, Max Fitness also offers a gym membership plan to all of its potential customers.
+
+Some of the main functionalities of this website are:
+    - Search Bar.
+    - Register option.
+    - Login option.
+    - Logout option.
+    - Save orders and checkout information to your profile account.
+    - Post comments or if blogs that you and other users of the website can see.
 
 ![Site Logo](/readme_resources/img_readme/logo.jpg)
 
@@ -51,16 +59,62 @@ Within the extent of offers such as nutrition and exercise plans, Max Fitness al
  27. As a store owner I want to be able to have a blog, so that I can write and post articles about training.
  28. As a store owner I want to build an active community around product based on subscription and individual payment model.
 
+ ### Strategy plane:
+
+ #### As a Developer
+
+- [x] I aim to build a Django project backend by a relational database to create a website that allows users to store and manipulate data records about a particular domain. 
+- [x] The project must be a brand new Django project, composed of multiple apps (an app for each potentially reusable component in your project
+- [x] Design a relational database schema well-suited for my domain. Put some thought into the relationships between entities.
+- [x] Create at least 2 custom django models beyond the examples shown on the course.
+- [x] User Authentication: The project should include an authentication mechanism, allowing a user to register and log in.
+- [x] Include at least one form with validation that will allow users to create and edit models in the backend.
+- [x] At least one of your Django apps should contain some e-commerce functionality using Stripe.
+- [x] Incorporate a main navigation menu and structured layout 
+- [x] The frontend should contain some JavaScript logic you have written to enhance the user experience.
+- [x] Use Git & GitHub for version control.
+- [x] Maintain clear separation between code written by you and code from external sources.
+- [x] Deploy the final version of my code to a hosting platform such as Heroku.
+
+
 ## Features
 
-- [ ] The home app is used to render a landing page, where there will be a displayed overview of what this store/community is about and what it has to offer.
-- [ ] Product app used to render product pages. Contains product and category model, as well as front-end javascript ajax logic that will allow sorting of given products.
-- [ ] Allauth app is used to allow easier handling of user accounts and their registration.
-- [ ] Bag app used to store, display products user would like to purchase. Allows the user to change contents, contents quantity, and contents type of his purchase before he goes to checkout.
-- [ ] Checkout app used to handle the purchase of bag items. Uses Stripe for secure card payments.
+- [x] The home app is used to render a landing page, where there will be a displayed overview of what this store/community is about and what it has to offer.
+- [x] Product app used to render product pages. Contains product and category model, as well as front-end javascript ajax logic that will allow sorting of given products.
+- [x] Allauth app is used to allow easier handling of user accounts and their registration.
+- [x] Bag app used to store, display products user would like to purchase. Allows the user to change contents, contents quantity, and contents type of his purchase before he goes to checkout.
+- [x] Checkout app used to handle the purchase of bag items. Uses Stripe for secure card payments.
+- [x] Blog app used by superusers to post blogs, and by normal users to post comments on blogs.
+- [x] Membership app used to display offers of different subscription models.
 
 ## Version Control (git)
 
 The project uses the Git tool to capture changes made in each version of the project build. Below you will find some relevant notes on specific versions that I as a developer find important noting.
 
+## Technologies Used
+
+- [Bootstrap](https://getbootstrap.com/)
+    - The project uses **Bootstrap** to provide a responsive toolkit for building the base of the website.
+- [Django](https://www.djangoproject.com/)
+    - The project uses **Django** framework to provide developer with tools, libraries and technologies that allow faster build of the web application.
+- [Stripe](https://stripe.com/en-se)
+    - The project uses **Stripe** services to handle checkout functionality.
+- [Amazon Aws](https://aws.amazon.com/)
+    - The project uses **Amazon Aws** to handle storage of website's static files.
+- [Fontawesome](https://fontawesome.com/)
+    - The project uses **Fontawesome** in order to use icons for the website.
+- [Fonts Google](https://fonts.google.com/)
+    - The project uses **Google Fonts** for changing the font family.
+- [JQuery](https://jquery.com)
+    - The project uses **JQuery** to simplify DOM manipulation.
+- [Heroku](https://www.heroku.com)
+    - The project uses **Heroku** to deploy finished project.
+- [Python](https://www.python.com)
+    - The project uses **Python** for routing and CRUD functionality.
+- [Github](https://www.GitHub.com)
+    - The project uses **GitHub** remote repository to store git commits.
+- [PhotoShop](https://www.adobe.com/)
+    - The project uses **PhotoShop** for downsizing images.
+
 ### Notes:
+- 
