@@ -7,7 +7,8 @@
         <div class="row">
             <div class="col-12 hero-background-color text-center">
                 <h1 class="text-white">Thank you. Your order information is bellow.</h1>
-                <p class="text-small mt-5 text-white">A confirmation email will be sent to <strong>{{ order.email }}</strong></p>
+                <p class="text-small mt-5 text-white">A confirmation email will be sent to
+                    <strong>{{ order.email }}</strong></p>
             </div>
         </div>
     </div>
@@ -27,7 +28,7 @@
                 <p class="mb-0 text-black font-weight-bold">Order Number</p>
             </div>
             <div class="col-12">
-                <p>{{ order.order_number}}</p>
+                <p class="small">{{ order.order_number}}</p>
             </div>
         </div>
         <div class="row">
@@ -44,23 +45,23 @@
             </div>
         </div>
         {% for item in order.lineitems.all %}
-            <div class="row">
-                {% if item.product %}
-                <div class="col-12 col-md-4">
-                    <p class="text-capitalize">{{ item.product.name }}</p>
-                </div>
-                <div class="col-12 col-md-4">
-                    <p class="text-capitalize">{{ item.price }}</p>
-                </div>
-                {% else %}
-                <div class="col-12 col-md-4">
-                    <p class="text-capitalize">{{ item.subscription.subscriptionType }} {{ item.subscription.name }}</p>
-                </div>
-                <div class="col-12 col-md-4">
-                    <p class="text-capitalize">{{ item.subscription.price }}</p>
-                </div>
-                {% endif %}
+        <div class="row">
+            {% if item.product %}
+            <div class="col-12 col-md-4">
+                <p class="text-capitalize">{{ item.product.name }}</p>
             </div>
+            <div class="col-12 col-md-4">
+                <p class="text-capitalize">{{ item.price }}</p>
+            </div>
+            {% else %}
+            <div class="col-12 col-md-4">
+                <p class="text-capitalize">{{ item.subscription.subscriptionType }} {{ item.subscription.name }}</p>
+            </div>
+            <div class="col-12 col-md-4">
+                <p class="text-capitalize">{{ item.subscription.price }}</p>
+            </div>
+            {% endif %}
+        </div>
         {% endfor %}
         <div class="row">
             <div class="col-12 mt-3">
@@ -159,24 +160,24 @@
             </div>
         </div>
         <div class="row">
-			<div class="col-12 text-left">
+            <div class="col-12 text-left">
                 {% if from_profile %}
-                    <a href="{% url 'profile' %}" class="btn btn-primary text-white products-section-btn rounded-0 my-2">
-                        <span class="icon mr-2">
-                            <i class="fas fa-angle-left"></i>
-                        </span>
-                        <span class="text-capitalize">Back to Profile</span>
-                    </a>
+                <a href="{% url 'profile' %}" class="btn btn-primary text-white products-section-btn rounded-0 my-2">
+                    <span class="icon mr-2">
+                        <i class="fas fa-angle-left"></i>
+                    </span>
+                    <span class="text-capitalize">Back to Profile</span>
+                </a>
                 {% else %}
-                    <a href="{% url 'home' %}" class="btn btn-primary text-white products-section-btn rounded-0 my-2">
-                        <span class="icon mr-2">
-                            <i class="fas fa-gifts"></i>
-                        </span>
-                        <span class="text-capitalize">Return to home page</span>
-                    </a>
+                <a href="{% url 'home' %}" class="btn btn-primary text-white products-section-btn rounded-0 my-2">
+                    <span class="icon mr-2">
+                        <i class="fas fa-gifts"></i>
+                    </span>
+                    <span class="text-capitalize">Return to home page</span>
+                </a>
                 {% endif %}
-			</div>
-		</div>
+            </div>
+        </div>
     </div>
 </div>
 {% endblock %}

@@ -65,7 +65,7 @@ def checkout(request):
     if subscription_bag:
         for item in subscription_bag.items():
             bag_items.append(item)
-    print(bag_items)
+
     # Redirect if there are no items in the bag
     if not bag_items:
         messages.error(request, "There's nothing in your bag at the moment")
@@ -125,7 +125,8 @@ def checkout(request):
                         return redirect(reverse('view_bag'))
                 else:
                     try:
-                        subscription = get_object_or_404(Membership, pk=item_id)
+                        subscription = get_object_or_404(
+                            Membership, pk=item_id)
                         order_line_item = OrderLineItem(
                             order=order,
                             subscription=subscription,
