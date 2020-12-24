@@ -2,19 +2,19 @@
 {% load static %}
 
 {% block extra_css %}
-    <link rel="stylesheet" href="{% static 'blog/css/blog_post.css' %}">
+<link rel="stylesheet" href="{% static 'blog/css/blog_post.css' %}">
 {% endblock %}
 
 {% block page_hero %}
-    <div class="callout-container-img-bg">
-        <div class="container">
-			<div class="row">
-				<div class="col-12 hero-background-color text-center">
-                    <h1 class="text-white mb-3">{{ post.title }}</h1>
-				</div>
-			</div>
-		</div>
-	</div>
+<div class="callout-container-img-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 hero-background-color text-center">
+                <h1 class="text-white mb-3">{{ post.title }}</h1>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
 
 {% block content %}
@@ -23,8 +23,11 @@
     <div class="row">
         <div class="col-12 text-center mb-3">
             <h4>Edit or delete post</h4>
-            <button class="btn btn-primary mt-3 blog-post-btn" type="button" data-toggle="collapse" data-target="#collapsed-form" aria-expanded="false" aria-controls="collapseExample">Edit Post</button>
-            <button class="btn btn-danger delete-btn mt-3 radius-0" type="button" data-toggle="collapse" data-target="#collapsed-delete-form" aria-expanded="false">Delete Post</button>
+            <button class="btn btn-primary mt-3 blog-post-btn" type="button" data-toggle="collapse"
+                data-target="#collapsed-form" aria-expanded="false" aria-controls="collapsed-delete-form">Edit
+                Post</button>
+            <button class="btn btn-danger delete-btn mt-3 radius-0" type="button" data-toggle="collapse"
+                data-target="#collapsed-delete-form" aria-expanded="false">Delete Post</button>
         </div>
     </div>
     <div class="row collapse" id="collapsed-delete-form">
@@ -37,7 +40,8 @@
                     </div>
                     <div class="form-group col-12 text-center">
                         <button class="btn btn-danger delete-btn mt-3 radius-0" type="submit">Yes, delete</button>
-                        <button class="btn btn-danger delete-btn mt-3 radius-0" type="button" data-toggle="collapse" data-target="#collapsed-delete-form" aria-expanded="false">Don't delete</button>
+                        <button class="btn btn-danger delete-btn mt-3 radius-0" type="button" data-toggle="collapse"
+                            data-target="#collapsed-delete-form" aria-expanded="false">Don't delete</button>
                     </div>
                 </div>
             </form>
@@ -75,9 +79,9 @@
             <div class="row">
                 <div class="col-12 col-lg-5 blog-post-img">
                     {% if post.image %}
-                        <img src="{{ post.image.url }}" class="h-100 w-100 post-image" alt="{{ post.title }}">
+                    <img src="{{ post.image.url }}" class="h-100 w-100 post-image" alt="{{ post.title }}">
                     {% else %}
-                        <img src="{{ MEDIA_URL }}noimage.png" class="h-100 w-100 post-image" alt="{{ post.title }}">
+                    <img src="{{ MEDIA_URL }}noimage.png" class="h-100 w-100 post-image" alt="{{ post.title }}">
                     {% endif %}
                 </div>
                 <div class="col-12 mt-5 mt-lg-0 text-center text-lg-left col-lg-7">
@@ -116,35 +120,35 @@
                 </div>
             </div>
             {% if comments %}
-                {% for comment in comments %}
-                <div class="row mt-4 comment-card">
-                    <div class="col-12">
-                        <p class="small mb-0 mt-3 text-white text-capitalize">{{ comment.user.username }}</p>
-                        <hr class="mb-0 bg-white">
-                    </div>
-                    <div class="col-12">
-                        <p class="small mt-2 mb-0 text-white">{{ comment.body }}</p>
-                    </div>
-                    <div class="col-12">
-                        <hr class="mb-0 bg-white">
-                        {% if user.id == comment.user.id %}
-                        <p class="small mt-1 text-white mb-0">{{ comment.date_added }}</p>
-                        <form method="POST" action="{% url 'delete_comment' comment.id %}">
-                            {% csrf_token %}
-                            <input type="hidden" value="{{post.id}}" name="post_id">
-                            <button class="btn-danger delete-btn comment-remove-btn" type="submit">Remove</button>
-                        </form>
-                        {% else %}
-                        <p class="small mt-1 text-white">{{ comment.date_added }}</p>
-                        {% endif %}
-                    </div>
+            {% for comment in comments %}
+            <div class="row mt-4 comment-card">
+                <div class="col-12">
+                    <p class="small mb-0 mt-3 text-white text-capitalize">{{ comment.user.username }}</p>
+                    <hr class="mb-0 bg-white">
                 </div>
-                {% endfor %}
+                <div class="col-12">
+                    <p class="small mt-2 mb-0 text-white">{{ comment.body }}</p>
+                </div>
+                <div class="col-12">
+                    <hr class="mb-0 bg-white">
+                    {% if user.id == comment.user.id %}
+                    <p class="small mt-1 text-white mb-0">{{ comment.date_added }}</p>
+                    <form method="POST" action="{% url 'delete_comment' comment.id %}">
+                        {% csrf_token %}
+                        <input type="hidden" value="{{post.id}}" name="post_id">
+                        <button class="btn-danger delete-btn comment-remove-btn" type="submit">Remove</button>
+                    </form>
+                    {% else %}
+                    <p class="small mt-1 text-white">{{ comment.date_added }}</p>
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}
             {% else %}
-                <div class="h-100 d-flex flex-column text-center">
-                    <p class="text-white mt-5">Currently, there aren't any comments available for this post.</p>
-                    <p class="text-white mb-auto">Would you like to comment?</p>
-                </div>
+            <div class="h-100 d-flex flex-column text-center">
+                <p class="text-white mt-5">Currently, there aren't any comments available for this post.</p>
+                <p class="text-white mb-auto">Would you like to comment?</p>
+            </div>
             {% endif %}
         </div>
     </div>
