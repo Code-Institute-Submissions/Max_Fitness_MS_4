@@ -13,6 +13,26 @@ Some of the main functionalities of this website are:
     - Post comments or if blogs that you and other users of the website can see.
 
 ![Site Logo](/readme_resources/img_readme/logo.jpg)
+# Table of Contents
+- [Max Fitnesss](#max-fitnesss)
+  * [UX](#ux)
+    + [Viewing and Navigation](#viewing-and-navigation)
+    + [Registration and User Accounts](#registration-and-user-accounts)
+    + [Sorting and Searching](#sorting-and-searching)
+    + [Purchase and Checkout](#purchase-and-checkout)
+    + [Admin and Store Management](#admin-and-store-management)
+    + [Strategy plane:](#strategy-plane-)
+      - [As a Developer](#as-a-developer)
+  * [Features](#features)
+    + [Testing Deployment](#testing-deployment)
+  * [Deployment](#deployment)
+  * [Information Architecture](#information-architecture)
+  * [Version Control (git)](#version-control--git-)
+  * [Technologies Used](#technologies-used)
+  * [Notes](#notes)
+  * [Content](#content)
+  * [Media](#media)
+  * [Acknowledgements](#acknowledgements)
 
 ## UX
 
@@ -230,20 +250,20 @@ The project uses the Git tool to capture changes made in each version of the pro
 - [PhotoShop](https://www.adobe.com/)
     - The project uses **PhotoShop** for downsizing images.
 
-### Notes:
+## Notes
 - These are some notes worth mentioning to whoever gets to review my code:
     - I will use all of the apps that I have currently built in my future projects as I plan to extend them and make them better. This will allow me to have a set of plugin apps ready to go each time I have to make some new project for someone.  
     - In terms of UI design I have strayed a bit from my main wireframe. The reason for this is time was a limiting factor here. I decided to keep things simple and in future versions, I will add everything else as I will not be limited by the deadline.
 
-### Content
+## Content
 
 - The **text content** of the one blog post presented on the website is not my creation. Websites is created solely for educational purposes to showcase my programing logic.
 It will not be used for any commercial benefits only for educational purposes.
 
-### Media
+## Media
 - The photos used in this site were obtained from [Unsplash.com](https://unsplash.com/).
 
-### Acknowledgements
+## Acknowledgements
 
 - I received inspiration for this project from Code Institute school lessons.
 - My mentor Aaron
