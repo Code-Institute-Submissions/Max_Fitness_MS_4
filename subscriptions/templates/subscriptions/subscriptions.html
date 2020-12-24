@@ -4,72 +4,73 @@
 
 {% block page_hero %}
 <div class="subscriptions-container-img-bg">
-        <div class="container">
-			<div class="row">
-				<div class="col-12 hero-background-color text-center">
-                    <h1 class="text-white mb-5">Bellow you will find subscription plans.</h1>   
-				</div>
-			</div>
-            <div class="row">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 hero-background-color text-center">
+                <h1 class="text-white mb-5">Bellow you will find subscription plans.</h1>
             </div>
-		</div>
-	</div>
+        </div>
+        <div class="row">
+        </div>
+    </div>
+</div>
 
 {% endblock %}
 
 {% block content %}
-           <div class="container">
-                <div class="row pt-5 pb-5">
-                {% for subscription in memberships %}
-                    <div class="col-sm-6 col-md-6 col-lg-4">
-                        <div class="card card-background text-center">
-                            <div class="card-header bg-transparent d-flex">
-                                <h4 class="text-white font-weight-bold my-auto mx-auto">{{ subscription.name }}</h4>
-                            </div>
-                            <div class="card-body">
-                                <h5 class="card-title text-white text-capitalize">{{ subscription.subscriptionType }} subscription</h5>
-                                <div class="offer-price w-50 d-flex mx-auto mb-2 mt-2">
-                                    <p class="text-white my-auto mx-auto pt-2 pb-2">${{ subscription.price }}</p>
-                                </div>
-                                {% for instance in subscription.included_extras|split:',' %}
-                                <p class="card-text text-white">
-                                    {{instance}}
-                                </p>
-                                {% endfor %}
-                            </div>
-                            <div class="card-footer">
-                                <form class="form" action="{% url 'add_to_bag' subscription.id %}" method="POST">
-                                    {% csrf_token %} 
-                                        <div class="col-12">
-                                            <button class="btn btn-primary offer-btn products-section-btn mt-3">Add to Bag</button>
-                                        </div>
-                                    <input type="hidden" name="redirect_url" value="{{ request.path }}">
-                                    <input type="hidden" name="category" value="{{subscription.category}}">
-                                    <input type="hidden" name="subscriptionType" value="{{subscription.subscriptionType}}">
-                                </form>                                
-                            </div>
-                        </div>
-                    </div>
-                    {% if forloop.counter|divisibleby:1 %}
-                    <div class="col-12 d-sm-none mb-5">
-                        <hr class="hr-product">
-                    </div>
-                    {% endif %}                        
-                    {% if forloop.counter|divisibleby:2 %}
-                    <div class="col-12 d-none d-sm-block d-md-block d-lg-none mb-5">
-                        <hr class="hr-product">
-                    </div>
-                    {% endif %}
-                    {% if forloop.counter|divisibleby:3 %}
-                    <div class="col-12 d-none d-lg-block mb-5">
-                        <hr class="hr-product">
-                    </div>
-                    {% endif %}
-                {% endfor %}
+<div class="container">
+    <div class="row pt-5 pb-5">
+        {% for subscription in memberships %}
+        <div class="col-sm-6 col-md-6 col-lg-4">
+            <div class="card card-background text-center">
+                <div class="card-header bg-transparent d-flex">
+                    <h4 class="text-white font-weight-bold my-auto mx-auto">{{ subscription.name }}</h4>
                 </div>
-           </div>
+                <div class="card-body">
+                    <h5 class="card-title text-white text-capitalize">{{ subscription.subscriptionType }} subscription
+                    </h5>
+                    <div class="offer-price w-50 d-flex mx-auto mb-2 mt-2">
+                        <p class="text-white my-auto mx-auto pt-2 pb-2">${{ subscription.price }}</p>
+                    </div>
+                    {% for instance in subscription.included_extras|split:',' %}
+                    <p class="card-text text-white">
+                        {{instance}}
+                    </p>
+                    {% endfor %}
+                </div>
+                <div class="card-footer">
+                    <form class="form" action="{% url 'add_to_bag' subscription.id %}" method="POST">
+                        {% csrf_token %}
+                        <div class="col-12">
+                            <button class="btn btn-primary offer-btn products-section-btn mt-3">Add to Bag</button>
+                        </div>
+                        <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                        <input type="hidden" name="category" value="{{subscription.category}}">
+                        <input type="hidden" name="subscriptionType" value="{{subscription.subscriptionType}}">
+                    </form>
+                </div>
+            </div>
+        </div>
+        {% if forloop.counter|divisibleby:1 %}
+        <div class="col-12 d-sm-none mb-5">
+            <hr class="hr-product">
+        </div>
+        {% endif %}
+        {% if forloop.counter|divisibleby:2 %}
+        <div class="col-12 d-none d-sm-block d-md-block d-lg-none mb-5">
+            <hr class="hr-product">
+        </div>
+        {% endif %}
+        {% if forloop.counter|divisibleby:3 %}
+        <div class="col-12 d-none d-lg-block mb-5">
+            <hr class="hr-product">
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+</div>
 {% endblock %}
 
 {% block extra_css %}
-    <link rel="stylesheet" href="{% static 'css/subscriptions.css' %}">
+<link rel="stylesheet" href="{% static 'css/subscriptions.css' %}">
 {% endblock %}
