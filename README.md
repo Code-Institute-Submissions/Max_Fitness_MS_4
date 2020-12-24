@@ -76,7 +76,6 @@ Some of the main functionalities of this website are:
 - [x] Maintain clear separation between code written by you and code from external sources.
 - [x] Deploy the final version of my code to a hosting platform such as Heroku.
 
-
 ## Features
 
 - [x] The home app is used to render a landing page, where there will be a displayed overview of what this store/community is about and what it has to offer.
@@ -194,6 +193,13 @@ Using this IDE I was able to make my commits and push all of my code to the [Git
  4. From there you use any addon that allows you to run the server locally. 
  5. In order to have a functional app, you will have to load the json data from fixtures.
 
+## Information Architecture
+
+- The data structure of different data models and their relations look like this:
+
+![Checkout app](/readme_resources/img_readme/Checkout_app.png)
+
+
 ## Version Control (git)
 
 The project uses the Git tool to capture changes made in each version of the project build. Below you will find some relevant notes on specific versions that I as a developer find important noting.
@@ -224,7 +230,9 @@ The project uses the Git tool to capture changes made in each version of the pro
     - The project uses **PhotoShop** for downsizing images.
 
 ### Notes:
-- 
+- These are some notes worth mentioning to whoever gets to review my code:
+    - I will use all of the apps that I have currently built in my future projects as I plan to extend them and make them better. This will allow me to have a set of plugin apps ready to go each time I have to make some new project for someone.  
+    - In terms of UI design I have strayed a bit from my main wireframe. The reason for this is time was a limiting factor here. I decided to keep things simple and in future versions, I will add everything else as I will not be limited by the deadline.
 
 ### Content
 
