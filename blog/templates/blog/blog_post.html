@@ -127,7 +127,16 @@
                     </div>
                     <div class="col-12">
                         <hr class="mb-0 bg-white">
+                        {% if user.id == comment.user.id %}
+                        <p class="small mt-1 text-white mb-0">{{ comment.date_added }}</p>
+                        <form method="POST" action="{% url 'delete_comment' comment.id %}">
+                            {% csrf_token %}
+                            <input type="hidden" value="{{post.id}}" name="post_id">
+                            <button class="btn-danger delete-btn comment-remove-btn" type="submit">Remove</button>
+                        </form>
+                        {% else %}
                         <p class="small mt-1 text-white">{{ comment.date_added }}</p>
+                        {% endif %}
                     </div>
                 </div>
                 {% endfor %}

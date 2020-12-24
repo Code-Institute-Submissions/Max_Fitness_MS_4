@@ -139,3 +139,18 @@ def add_comment(request, item_id):
         return redirect(reverse('blog_post', args=(item_id,)))
     else:
         return redirect(reverse('blog_post', args=(item_id,)))
+
+
+@require_POST
+def delete_comment(request, item_id):
+    comment = BlogComments.objects.get(pk=item_id)
+    if request.user.id == comment.user.id:
+        comment.delete()
+        messages.success(request, 'Comment post was succesfully deleted.')
+        post_id = request.POST.get('post_id')
+        item_id = post_id
+        return redirect(reverse('blog_post', args=(item_id,)))
+    else:
+        post_id = request.POST.get('post_id')
+        item_id = post_id
+        return redirect(reverse('blog_post', args=(item_id,)))
