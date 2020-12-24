@@ -2,19 +2,19 @@
 {% load static %}
 
 {% block page_hero %}
-<section class="product-container-img-bg">
-     <div class="container-fluid">
+<div class="product-container-img-bg">
+    <div class="container-fluid">
         <div class="row">
             <div class="col-12 col-md-6 col-lg-4 offset-lg-2">
                 <div class="image-container my-5">
                     {% if product.image %}
-                        <a href="{{ product.image.url }}" target="_blank">
-                            <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
-                        </a>
-                        {% else %}
-                        <a href="">
-                            <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
-                        </a>
+                    <a href="{{ product.image.url }}" target="_blank">
+                        <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
+                    </a>
+                    {% else %}
+                    <a href="">
+                        <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                    </a>
                     {% endif %}
                 </div>
             </div>
@@ -30,20 +30,21 @@
                     </p>
                     {% endif %}
                     {% if product.rating %}
-                        <small class="text-pink"><i class="fas fa-star mr-1"></i>{{ product.rating }} / 5</small>
+                    <small class="text-pink"><i class="fas fa-star mr-1"></i>{{ product.rating }} / 5</small>
                     {% else %}
-                        <small class="text-pink">No Rating</small>
+                    <small class="text-pink">No Rating</small>
                     {% endif %}
                     <p class="mt-3 text-white">{{ product.description }}</p>
                     <form class="form" action="{% url 'add_to_bag' product.id %}" method="POST">
                         {% csrf_token %}
                         <div class="form-row">
                             <div class="col-12">
-                                <a href="{% url 'products' %}" class="btn btn-primary products-section-btn text-uppercase">Keep Shopping</a>
+                                <a href="{% url 'products' %}"
+                                    class="btn btn-primary products-section-btn text-uppercase">Keep Shopping</a>
                             </div>
-                           <div class="col-12">
+                            <div class="col-12">
                                 <button class="btn btn-primary products-section-btn mt-3">Add to Bag</button>
-                           </div>
+                            </div>
                         </div>
                         <input type="hidden" name="redirect_url" value="{{ request.path }}">
                         <input type="hidden" name="category" value="{{product.category}}">
@@ -52,9 +53,9 @@
             </div>
         </div>
     </div>
-</section>
+</div>
 {% endblock %}
 
 {% block extra_css %}
-    <link rel="stylesheet" href="{% static 'css/product-detail.css' %}">
+<link rel="stylesheet" href="{% static 'css/product-detail.css' %}">
 {% endblock %}
