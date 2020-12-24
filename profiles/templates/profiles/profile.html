@@ -2,21 +2,21 @@
 {% load static %}
 
 {% block extra_css %}
-    <link rel="stylesheet" href="{% static 'profile/css/profile.css' %}">    
+<link rel="stylesheet" href="{% static 'profile/css/profile.css' %}">
 {% endblock %}
 
 {% block page_hero %}
-    <div class="callout-container-img-bg">
-        <div class="container">
-			<div class="row">
-				<div class="col-12 hero-background-color text-center">
-                    <h1 class="text-white">Your Profile Page</h1>
-                    <p class="text-small text-white">Information about your profile can be found bellow</p>
-				</div>
-			</div>
-		</div>
+<div class="callout-container-img-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 hero-background-color text-center">
+                <h1 class="text-white">Your Profile Page</h1>
+                <p class="text-small text-white">Information about your profile can be found bellow</p>
+            </div>
+        </div>
     </div>
-    <section class="form-checkout-section">
+</div>
+<section class="form-checkout-section">
     <div class="container-fluid pt-5 pb-5">
         <div class="row">
             <div class="col-12 text-left">
@@ -40,36 +40,23 @@
                     <table class="table table-sm table-borderless">
                         <thead>
                             <tr>
-                                <th>Order Num.</th>
+                                <th>Or. Num.</th>
                                 <th>Date</th>
-                                <th>Items</th>
-                                <th>Order Total</th>
+                                <th>Or. Total</th>
                             </tr>
                         </thead>
                         <tbody>
                             {% for order in orders %}
-                                <tr>
-                                    <td>
-                                        <a href="{% url 'order_history' order.order_number %}" titel="{{ order.order_number }}">
-                                            {{ order.order_number|truncatechars:6 }}
-                                        </a>
-                                    </td>
-                                    <td class="small">{{ order.date }}</td>
-                                    <td>
-                                        <ul class="list-unstyled">
-                                            {% for item in order.lineitems.all %}
-                                                <li class="small">
-                                                    {% if item.product %}
-                                                        Category: {{item.product.category}}, {{item.product.name}}
-                                                    {% else %}
-                                                        Category: {{item.subscription.category}}, {{item.subscription.name}}
-                                                    {% endif %}
-                                                </li>
-                                            {% endfor %}
-                                        </ul>
-                                    </td>
-                                    <td>{{ order.order_total }}</td>
-                                </tr>
+                            <tr>
+                                <td>
+                                    <a href="{% url 'order_history' order.order_number %}"
+                                        titel="{{ order.order_number }}">
+                                        {{ order.order_number|truncatechars:6 }}
+                                    </a>
+                                </td>
+                                <td class="small">{{ order.date }}</td>
+                                <td>{{ order.order_total }}</td>
+                            </tr>
                             {% endfor %}
                         </tbody>
                     </table>
@@ -81,14 +68,13 @@
 {% endblock %}
 
 {% block content %}
-    <div class="user-profile-info">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
+<div class="user-profile-info">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
 
-                </div>
             </div>
         </div>
     </div>
+</div>
 {% endblock %}
-
