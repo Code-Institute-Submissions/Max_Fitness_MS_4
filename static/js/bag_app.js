@@ -17,14 +17,14 @@ function getCookie(name) {
 const csrftoken = getCookie('csrftoken');
 
 // Remove item and reload on click
-$(".remove-item").click(function(event){
+$(".remove-item").click(function (event) {
     let itemId = $(this).attr('id').split('remove_')[1];
-    let subscriptionType= $(this).data('subscription_type');
+    let subscriptionType = $(this).data('subscription_type');
     let url = "/bag/remove/" + itemId + '/';
     let data = {
         "csrfmiddlewaretoken": csrftoken,
         "subscriptionType": subscriptionType
-    }
+    };
 
-    $.post(url, data).done(function() { location.reload(); });
+    $.post(url, data).done(function () { location.reload(); });
 });
